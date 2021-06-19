@@ -601,7 +601,7 @@ AS
 					SET [activo] = 0
 				WHERE id_producto =@id_producto AND
 						id_bodega =@id_bodega and
-						cantidad = @incantidadand
+						cantidad = @incantidad AND 
 						activo = 1
 
 			COMMIT
@@ -751,6 +751,355 @@ AS
 			If @@TRANCOUNT > 0 
 				ROLLBACK TRAN;
 			THROW 62528,'Error: No se ha podido Eliminar  el Cliente_x_Ferreteria, por favor revise los datos',1;
+		END CATCH
+	END
+GO
+CREATE Procedure Eliminar_Departamento_x_Ferreteria
+	@innombre_ferreteria  varchar(200),
+	@indescripdepartamento  varchar(200),
+	@incarnet_empleado int
+AS   
+	BEGIN 
+		BEGIN TRY
+		SET NOCOUNT ON 
+		SET XACT_ABORT ON
+			--Declaracion de variables
+			declare
+				@id_ferreteria INT,
+				@id_departamento INT,
+				@id_empleado INT
+
+			set @id_ferreteria = (SELECT id_ferreteria FROM [Ferreteria] WHERE descripcion=@innombre_ferreteria  AND [Activo] = 1)
+			set @id_departamento = (SELECT id_departamento FROM [Departamento] WHERE nombre=@indescripdepartamento  AND [Activo] = 1)
+			SET @id_empleado = (SELECT id_empleado FROM [Empleado] WHERE carnet=@incarnet_empleado  AND [Activo] = 1)
+
+
+			BEGIN TRAN
+
+				--Eliminar AL Cliente_x_Ferreteria
+				Update Departamento_x_Ferreteria
+				set [activo] = 0
+				where id_ferreteria=@id_ferreteria AND
+					id_deparamento=@id_departamento AND
+					id_experto= @id_empleado AND
+					activo=1
+
+			COMMIT
+		END TRY
+		BEGIN CATCH
+			If @@TRANCOUNT > 0 
+				ROLLBACK TRAN;
+			THROW 62528,'Error: No se ha podido Eliminar el Cliente_x_Ferreteria, por favor revise los datos',1;
+		END CATCH
+	END
+GO
+CREATE Procedure Eliminar_Pasillo_x_Departamento
+	@innumero_pasillo INT,
+	@indescripdepartamento  varchar(200),
+	@innombre_ferreteria  varchar(200)
+AS   
+	BEGIN 
+		BEGIN TRY
+		SET NOCOUNT ON 
+		SET XACT_ABORT ON
+			--Declaracion de variables
+			declare
+				@id_pasillo INT,
+				@id_departamento INT,
+				@id_ferreteria INT,
+				@id_departamento_x_ferreteria INT
+				
+			set @id_pasillo = (SELECT id_pasillo FROM [Pasillo] WHERE numero=@innumero_pasillo  AND [Activo] = 1)
+			SET @id_ferreteria = (SELECT id_ferreteria FROM [Ferreteria] WHERE descripcion=@innombre_ferreteria  AND [Activo] = 1)
+			SET @id_departamento = (SELECT id_departamento FROM [Departamento] WHERE nombre=@indescripdepartamento  AND [Activo] = 1)
+			SET @id_departamento_x_ferreteria = (SELECT id_departamento_x_ferreteria FROM [Departamento_x_Ferreteria] WHERE id_ferreteria = @id_ferreteria AND id_deparamento = @id_departamento and[activo] = 1)
+
+			BEGIN TRAN
+				--Eliminar AL Pasillo
+				Update Pasillo_x_Departamento 
+				set [activo] = 0
+				where id_pasillo=@id_pasillo AND
+					id_departamento_x_ferreteria = @id_departamento_x_ferreteria AND
+					activo = 1
+			COMMIT
+		END TRY
+		BEGIN CATCH
+			If @@TRANCOUNT > 0 
+				ROLLBACK TRAN;
+			THROW 62503,'Error: No se ha podido Eliminar la Pasillo, por favor revise los datos',1;
+		END CATCH
+	END
+GO
+CREATE Procedure Eliminar_Estante
+	@innumero INT,
+	@innumero_pasillo INT,
+	@indescripdepartamento  varchar(200),
+	@innombre_ferreteria  varchar(200)
+AS   
+	BEGIN 
+		BEGIN TRY
+		SET NOCOUNT ON 
+		SET XACT_ABORT ON
+
+					--Declaracion de variables
+			declare
+				@id_pasillo INT,
+				@id_departamento INT,
+				@id_ferreteria INT,
+				@id_departamento_x_ferreteria INT,
+				@id_pasillo_x_departamento INT
+				
+			set @id_pasillo = (SELECT id_pasillo FROM [Pasillo] WHERE numero=@innumero_pasillo  AND [Activo] = 1)
+			SET @id_ferreteria = (SELECT id_ferreteria FROM [Ferreteria] WHERE descripcion=@innombre_ferreteria  AND [Activo] = 1)
+			SET @id_departamento = (SELECT id_departamento FROM [Departamento] WHERE nombre=@indescripdepartamento  AND [Activo] = 1)
+			SET @id_departamento_x_ferreteria = (SELECT id_departamento_x_ferreteria FROM [Departamento_x_Ferreteria] WHERE id_ferreteria = @id_ferreteria AND id_deparamento = @id_departamento and[activo] = 1)
+			SET @id_pasillo_x_departamento = (SELECT id_pasillo_x_departamento FROM [Pasillo_x_Departamento] WHERE id_pasillo = @id_pasillo AND id_departamento_x_ferreteria = @id_departamento_x_ferreteria and[activo] = 1)
+
+			BEGIN TRAN
+				--Eliminar AL Estante
+				Update Estante 
+				set [activo] = 0
+				where numero=@innumero and
+				id_pasillo_x_departamento = @id_pasillo_x_departamento AND
+				activo = 1
+			COMMIT
+		END TRY
+		BEGIN CATCH
+			If @@TRANCOUNT > 0 
+				ROLLBACK TRAN;
+			THROW 62503,'Error: No se ha podido Eliminar el Estante, por favor revise los datos',1;
+		END CATCH
+	END
+GO
+CREATE Procedure Eliminar_Estante_x_Producto
+	@innumero_estante INT,
+	@incodigo_producto INT,
+	@innumero_pasillo INT,
+	@indescripdepartamento  varchar(200),
+	@innombre_ferreteria  varchar(200)
+AS   
+	BEGIN 
+		BEGIN TRY
+		SET NOCOUNT ON 
+		SET XACT_ABORT ON
+
+					--Declaracion de variables
+			declare
+				@id_pasillo INT,
+				@id_departamento INT,
+				@id_ferreteria INT,
+				@id_departamento_x_ferreteria INT,
+				@id_pasillo_x_departamento INT,
+				@id_estante INT,
+				@id_producto INT
+				
+			set @id_pasillo = (SELECT id_pasillo FROM [Pasillo] WHERE numero=@innumero_pasillo  AND [Activo] = 1)
+			SET @id_ferreteria = (SELECT id_ferreteria FROM [Ferreteria] WHERE descripcion=@innombre_ferreteria  AND [Activo] = 1)
+			SET @id_departamento = (SELECT id_departamento FROM [Departamento] WHERE nombre=@indescripdepartamento  AND [Activo] = 1)
+			SET @id_departamento_x_ferreteria = (SELECT id_departamento_x_ferreteria FROM [Departamento_x_Ferreteria] WHERE id_ferreteria = @id_ferreteria AND id_deparamento = @id_departamento and[activo] = 1)
+			SET @id_pasillo_x_departamento = (SELECT id_pasillo_x_departamento FROM [Pasillo_x_Departamento] WHERE id_pasillo = @id_pasillo AND id_departamento_x_ferreteria = @id_departamento_x_ferreteria and[activo] = 1)
+			SET @id_estante = (SELECT id_estante FROM [Estante] WHERE numero = @innumero_estante AND id_pasillo_x_departamento = @id_pasillo_x_departamento and[activo] = 1)
+			SET @id_producto = (SELECT id_producto FROM [Producto] WHERE codigo = @incodigo_producto and[activo] = 1)
+
+			BEGIN TRAN
+				--Eliminar AL Estante
+				Update Producto_x_Estante 
+				set [activo] = 0
+				where 
+				id_estante = @id_estante and
+				id_producto = @id_producto and
+				activo = 1
+			COMMIT
+		END TRY
+		BEGIN CATCH
+			If @@TRANCOUNT > 0 
+				ROLLBACK TRAN;
+			THROW 62503,'Error: No se ha podido Eliminar el Estante, por favor revise los datos',1;
+		END CATCH
+	END
+GO
+CREATE Procedure Eliminar_Venta
+	@innombre_cliente  varchar(200),
+	@incarnet_empleado  int,
+	@innombre_ferreteria  varchar(200),
+	@infecha	date,
+	@inmonto	money
+AS   
+	BEGIN 
+		BEGIN TRY
+		SET NOCOUNT ON 
+		SET XACT_ABORT ON
+
+					--Declaracion de variables
+			declare
+				@id_ferreteria INT,
+				@id_vendedor INT,
+				@id_cliente INT
+				
+					
+			SET @id_ferreteria = (SELECT id_ferreteria FROM [Ferreteria] WHERE descripcion=@innombre_ferreteria  AND [Activo] = 1)
+			SET @id_vendedor = (SELECT id_empleado FROM [Empleado] WHERE carnet=@incarnet_empleado  AND [Activo] = 1)
+			SET @id_cliente = (SELECT id_cliente FROM [Cliente] WHERE nombre = @innombre_cliente and[activo] = 1)
+
+			BEGIN TRAN
+				--Eliminar AL Estante
+				Update Venta 
+				set [activo] = 0
+				where id_cliente = @id_cliente AND
+				id_ferreteria = @id_ferreteria AND
+				id_vendedor = @id_vendedor AND 
+				fecha= @infecha AND 
+				monto = @inmonto and 
+				activo = 1
+			COMMIT
+		END TRY
+		BEGIN CATCH
+			If @@TRANCOUNT > 0 
+				ROLLBACK TRAN;
+			THROW 62503,'Error: No se ha podido Eliminar el Estante, por favor revise los datos',1;
+		END CATCH
+	END
+GO
+CREATE Procedure Eliminar_Vehiculo
+	@inplaca_vehiculo  varchar(200),
+	@indescripcion  varchar(200),
+	@incapcidad_tanque_gasolina INT,
+	@innombre_ferreteria  varchar(200),
+	@incarnet_empleado  int
+AS   
+	BEGIN 
+		BEGIN TRY
+		SET NOCOUNT ON 
+		SET XACT_ABORT ON
+					--Declaracion de variables
+			DECLARE
+				@id_vehiculo INT,
+				@id_chofer INT,
+				@id_flotilla int
+						
+						
+			SET @id_chofer = (SELECT id_empleado FROM [Empleado] WHERE carnet=@incarnet_empleado  AND [Activo] = 1)
+			SET @id_vehiculo = (SELECT id_vehiculo FROM [Vehiculo] WHERE placa=@inplaca_vehiculo  AND [Activo] = 1)
+			SET @id_flotilla = (SELECT id_flotilla FROM [Flotilla] 
+				INNER JOIN [Ferreteria] ON Ferreteria.descripcion = @innombre_ferreteria WHERE Flotilla.activo = 1)
+			
+			BEGIN TRAN
+				--Eliminar AL Estante
+				Update Vehiculo 
+				set [activo] = 0
+				where placa=@inplaca_vehiculo and
+				descripcion = @indescripcion AND
+				capcidad_tanque_gasolina = @incapcidad_tanque_gasolina AND 
+				flotilla = @id_flotilla AND
+				activos = 1
+			COMMIT
+		END TRY
+		BEGIN CATCH
+			If @@TRANCOUNT > 0 
+				ROLLBACK TRAN;
+			THROW 62503,'Error: No se ha podido Eliminar la flotilla, por favor revise los datos',1;
+		END CATCH
+	END
+GO
+CREATE Procedure Eliminar_Flotilla
+	@innombre_ferreteria  varchar(200)
+AS   
+	BEGIN 
+		BEGIN TRY
+		SET NOCOUNT ON 
+		SET XACT_ABORT ON
+
+					--Declaracion de variables
+			declare
+				@id_ferreteria INT
+				
+				
+			SET @id_ferreteria = (SELECT id_ferreteria FROM [Ferreteria] WHERE descripcion=@innombre_ferreteria  AND [Activo] = 1)
+
+			BEGIN TRAN
+				--Eliminar AL Estante
+				Update Flotilla 
+				set [activo] = 0
+				where id_ferreteria = @id_ferreteria AND 
+				activo = 1
+			COMMIT
+		END TRY
+		BEGIN CATCH
+			If @@TRANCOUNT > 0 
+				ROLLBACK TRAN;
+			THROW 62503,'Error: No se ha podido Eliminar la flotilla, por favor revise los datos',1;
+		END CATCH
+	END
+GO
+CREATE Procedure Eliminar_Punto_x_Ruta
+	@inubicacion_punto  GEOMETRY,
+	@indescripcion_ruta varchar(200)
+
+AS   
+	BEGIN 
+		BEGIN TRY
+		SET NOCOUNT ON 
+		SET XACT_ABORT ON
+
+					--Declaracion de variables
+			declare
+				@id_ruta INT,
+				@id_punto INT
+				
+			SET @id_ruta = (SELECT id_ruta FROM Ruta WHERE descripcion=@indescripcion_ruta  AND [Activo] = 1)
+			SET @id_punto = (SELECT id_punto FROM Punto WHERE ubicacion=@inubicacion_punto  AND [Activo] = 1)
+
+			BEGIN TRAN
+				--Eliminar AL Estante
+				Update Punto_x_Ruta 
+				set [activo] = 0
+				where id_ruta = @id_ruta and
+				id_punto = @id_punto and
+				activo = 1
+			COMMIT
+		END TRY
+		BEGIN CATCH
+			If @@TRANCOUNT > 0 
+				ROLLBACK TRAN;
+			THROW 62503,'Error: No se ha podido Eliminar la flotilla, por favor revise los datos',1;
+		END CATCH
+	END
+GO
+
+CREATE Procedure Eliminar_Entrega
+	
+	@inplaca_vehiculo  varchar(200),
+	@indescripcion_ruta varchar(200),
+	@infecha DATE
+
+AS   
+	BEGIN 
+		BEGIN TRY
+		SET NOCOUNT ON 
+		SET XACT_ABORT ON
+
+					--Declaracion de variables
+			DECLARE
+				@id_ruta INT,
+				@id_vehiculo INT
+			
+			SET @id_ruta = (SELECT id_ruta FROM Ruta WHERE descripcion=@indescripcion_ruta  AND [Activo] = 1)
+			SET @id_vehiculo = (SELECT id_vehiculo FROM [Vehiculo] WHERE placa=@inplaca_vehiculo  AND [Activo] = 1)
+
+			BEGIN TRAN
+				--Eliminar AL Estante
+				Update Entrega 
+				set [activo] = 0
+				where id_ruta = @id_ruta AND
+				id_vehiculo = @id_vehiculo AND
+				fecha = @infecha AND
+				activo =  1
+			COMMIT
+		END TRY
+		BEGIN CATCH
+			If @@TRANCOUNT > 0 
+				ROLLBACK TRAN;
+			THROW 62503,'Error: No se ha podido Eliminar el Estante, por favor revise los datos',1;
 		END CATCH
 	END
 GO
