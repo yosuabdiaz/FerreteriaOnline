@@ -1,6 +1,8 @@
+USE FerreteriaOnline
+
 --Buscar Producto por cualquier caracteristica
 
-CREATE Procedure Buscar_Producto
+CREATE PROCEDURE Buscar_Producto
 	@inid_Producto INT,
 	@inid_marca INT, 
     @inid_Provedor INT,
@@ -19,18 +21,25 @@ CREATE Procedure Buscar_Producto
 
 AS   
 	BEGIN 
-        SELECT Producto.id_producto, Marca.nombre AS Marca,
-        Proveedor.nombre AS Proovedor, Producto.codigo,
-        Producto.precio, Garantia.tiempo_garantia,
-        Producto.descripcion, Aspecto_Tecnico.descripcion AS Aspecto_Tecnico,
+        SELECT ProductoDetalles.id_producto AS Producto,
+		Marca.nombre AS Marca,
+        Proveedor.nombre AS Proovedor,
+		Producto.codigo AS Cod,
+        Producto.precio AS Precio,
+		Garantia.tiempo_garantia,
+        Producto.descripcion AS Descripcion,
+		Aspecto_Tecnico.descripcion AS Aspecto_Tecnico,
         Contraindicacion.descripcion AS Contraindicacion,
-        Utilidad.descripcion AS Utilidad, Cuidado.descripcion AS Cuidado,
+        Utilidad.descripcion AS Utilidad,
+		Cuidado.descripcion AS Cuidado,
         Inventario_Ferreteria.id_ferreteria AS Ferreteria
-        FROM Producto
+        FROM Producto 
+		INNER JOIN ProductoDetalles
+        ON ProductoDetalles.id_producto = Producto.id_producto
         INNER JOIN Marca
         ON Marca.id_marca = Producto.id_marca
         INNER JOIN Proveedor
-        ON Producto.idprovedor = ProductoDetalles.id_provedor
+        ON ProductoDetalles.id_provedor = Proveedor.id_provedor
         INNER JOIN Garantia
         ON Garantia.id_garantia = Producto.id_garantia
         INNER JOIN Aspecto_Tecnico
@@ -41,21 +50,19 @@ AS
         ON Utilidad.id_utilidad = ProductoDetalles.id_utilidades
         INNER JOIN Cuidado
         ON Cuidado.id_cuidado = ProductoDetalles.id_cuidados
-        INNER JOIN ProductoDetalles
-        ON ProductoDetalles.id_producto = Producto.id_producto
         INNER JOIN Inventario_Ferreteria
-        ON Inventario_Ferreteria.id_producto = Producto.id_producto
+        ON Inventario_Ferreteria.id_producto = ProductoDetalles.id_producto
         WHERE Producto.id_producto = ISNULL(@inid_Producto,Producto.id_producto)
         AND Producto.id_marca = ISNULL(@inid_marca,Producto.id_marca)
-        AND ProductoDetalles.id_provedor = ISNULL(@inid_Provedor,Producto.id_provedor)
+        AND ProductoDetalles.id_provedor = ISNULL(@inid_Provedor,ProductoDetalles.id_provedor)
         AND Producto.codigo = ISNULL(@in_Codigo,Producto.codigo)
         AND Producto.precio = ISNULL(@in_Precio,Producto.precio)
         AND Producto.id_garantia = ISNULL(@inid_Garantia,Producto.id_garantia)
         AND Producto.descripcion = ISNULL(@in_Descripcion,Producto.descripcion)
-        AND ProductoDetalles.id_aspectos_tecnicos = ISNULL(@inid_aspectos_tecnicos,Producto.id_aspectos_tecnicos)
-        AND ProductoDetalles.id_contraindicaciones = ISNULL(@inid_contraindicaciones,Producto.id_contraindicaciones)
-        AND ProductoDetalles.id_utilidades = ISNULL(@inid_utilidades,Producto.id_utilidades)
-        AND ProductoDetalles.id_cuidados = ISNULL(@inid_cuidados,Producto.id_cuidados)
+        AND ProductoDetalles.id_aspectos_tecnicos = ISNULL(@inid_aspectos_tecnicos,ProductoDetalles.id_aspectos_tecnicos)
+        AND ProductoDetalles.id_contraindicaciones = ISNULL(@inid_contraindicaciones,ProductoDetalles.id_contraindicaciones)
+        AND ProductoDetalles.id_utilidades = ISNULL(@inid_utilidades,ProductoDetalles.id_utilidades)
+        AND ProductoDetalles.id_cuidados = ISNULL(@inid_cuidados,ProductoDetalles.id_cuidados)
         AND Marca.nombre = ISNULL(@in_Nombre_Marca,Marca.nombre)
         AND Proveedor.nombre = ISNULL(@in_Nombre_Proveedor,Proveedor.nombre)
         AND Garantia.tiempo_garantia = ISNULL(@in_Tiempo_Garantia,Garantia.tiempo_garantia)
