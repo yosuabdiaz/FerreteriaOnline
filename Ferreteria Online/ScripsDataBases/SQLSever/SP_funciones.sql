@@ -178,7 +178,7 @@ CREATE procedure Calcular_Vacaciones
 
 AS
     BEGIN
-        SELECT ((( YEAR(Empleado.fecha_ingreso) - 1 ) / 4 ) * 2) + @baseVacaciones AS Vacaciones_Calculadas,
+        SELECT  ((( (YEAR(GETDATE()) - YEAR(Empleado.fecha_ingreso)) - 1 ) / 4 ) * 2) + @baseVacaciones AS Vacaciones_Calculadas,
         Empleado.carnet, Empleado.nombre
         FROM Empleado
         WHERE Empleado.id_empleado = ISNULL(@inid_Empleado,Empleado.id_empleado)
