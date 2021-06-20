@@ -133,16 +133,17 @@ CREATE Procedure Ver_Amolestaciones
 AS
     BEGIN
         SELECT Empleado.id_empleado, Empleado.nombre,
-            Empleado.carnet, Amonestacion.descripcion AS Amonestacion
+            Empleado.carnet, Amonestacion.descripcion AS Amonestacion,
+			Amonestacion_x_Empleado.fecha AS Fecha
         FROM Empleado
         INNER JOIN Amonestacion_x_empleado
-        ON Empleado.idEmpleado = Amonestacion_x_empleado.id_empleado
+        ON Empleado.id_empleado = Amonestacion_x_empleado.id_empleado
         INNER JOIN Amonestacion
         ON Amonestacion_x_empleado.id_amonestacion = Amonestacion.id_amonestacion
-        INNER JOIN Ferreteria_x_Empleado
-        ON Empleado.id_empleado = Ferreteria_x_Empleado.id_empleado
+        INNER JOIN Empleado_x_Ferreteria
+        ON Empleado.id_empleado = Empleado_x_Ferreteria.id_empleado
         WHERE Empleado.id_empleado = ISNULL(@inid_Chofer,Empleado.id_Empleado)
-        AND Ferreteria_x_Empleado.id_ferreteria = ISNULL(@inid_Ferreteria,Ferreteria_x_Empleado.id_ferreteria)
+        AND Empleado_x_Ferreteria.id_ferreteria = ISNULL(@inid_Ferreteria,Empleado_x_Ferreteria.id_ferreteria)
         AND Amonestacion_x_empleado.fecha >= ISNULL(@in_Fecha_Inicial,Amonestacion_x_empleado.fecha)
         AND Amonestacion_x_empleado.fecha <= ISNULL(@in_Fecha_Final,Amonestacion_x_empleado.fecha)
     END
