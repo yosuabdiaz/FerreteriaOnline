@@ -114,7 +114,7 @@ AS
     BEGIN
         SELECT TOP 1 Venta.id_vendedor, SUM(Venta.monto) AS Total
         FROM Venta
-        GROUP BY Venta.id_vendedor
+        GROUP BY Venta.id_vendedor , Venta.id_ferreteria, Venta.fecha
         HAVING Venta.id_ferreteria =  ISNULL(@inid_Ferreteria,Venta.id_ferreteria)
         AND Venta.fecha <= ISNULL(@in_Fecha_Final,Venta.fecha)
         AND Venta.fecha >= ISNULL(@in_Fecha_Inicial,Venta.fecha)
