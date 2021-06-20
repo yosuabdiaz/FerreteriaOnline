@@ -187,27 +187,31 @@ GO
 
 --Premiación de empleados, validar amonestaciones
 
-CREATE procedure Calcular_Preamicion
+CREATE procedure Calcular_Premiacion
     @inid_Ferreteria INT, 
     @in_Fecha_Inicial DATE,
     @in_Fecha_Final DATE
 AS
     BEGIN
-        SELECT Empleado.nombre,Empleado.id_empleado, Empleado.carnet,
-        SUM(Ventas.monto) AS Total_Ventas, 
+        SELECT Empleado.id_empleado,
+        SUM(Venta.monto) AS Total_Ventas, 
         Sum(Amonestacion_x_empleado.id_empleado) AS Total_Amolestaciones
         FROM Empleado
-        INNER JOIN Ferreteria_x_Empleado
-        ON Ferreteria_x_Empleado.id_empleado = Empleado.id_empleado
+        INNER JOIN Empleado_x_Ferreteria
+        ON Empleado_x_Ferreteria.id_empleado = Empleado.id_empleado
         INNER JOIN Venta
-        ON Venta.idVendedor = Empleado.id_empleado
+        ON Venta.id_vendedor = Empleado.id_empleado
         INNER JOIN Amonestacion_x_empleado
         ON Amonestacion_x_empleado.id_empleado = Empleado.id_empleado
-        GROUP BY Empleado.id_empleado
-        HAVING Total_Amolestaciones = 0
+        GROUP BY Empleado.id_empleado,
+		Amonestacion_x_empleado.id_empleado,
+		Amonestacion_x_empleado.fecha,
+		Venta.fecha,
+		Empleado_x_Ferreteria.id_ferreteria
+        HAVING Sum(Amonestacion_x_empleado.id_empleado) = 0
         AND Amonestacion_x_empleado.fecha BETWEEN @in_Fecha_Inicial AND @in_Fecha_Final
         AND Venta.fecha BETWEEN @in_Fecha_Inicial AND @in_Fecha_Final
-        AND Ferreteria_x_Empleado.id_ferreteria = ISNULL(@inid_Ferreteria,Ferreteria_x_Empleado.id_ferreteria) 
+        AND Empleado_x_Ferreteria.id_ferreteria = ISNULL(@inid_Ferreteria,Empleado_x_Ferreteria.id_ferreteria) 
         ORDER BY Total_Ventas DESC
     END 
 GO 
