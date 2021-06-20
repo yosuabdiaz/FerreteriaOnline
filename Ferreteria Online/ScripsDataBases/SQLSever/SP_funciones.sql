@@ -70,10 +70,10 @@ AS
 	END
 GO
 
---Buscar Producto por una parte de la descripcion
 
+--Buscar Producto por una parte de la descripcion
 CREATE Procedure Buscar_Producto_Parte_Descripcion
-    @in_Parte_Descripcion VARCHAR(200)
+    @in_Parte_Descripcion NVARCHAR(200)
 AS
     BEGIN
         SELECT Producto.id_producto, Marca.nombre AS Marca,
@@ -83,10 +83,12 @@ AS
         Contraindicacion.descripcion AS Contraindicacion,
         Utilidad.descripcion AS Utilidad, Cuidado.descripcion AS Cuidado
         FROM Producto
+		INNER JOIN ProductoDetalles
+        ON ProductoDetalles.id_producto = Producto.id_producto
         INNER JOIN Marca
         ON Marca.id_marca = Producto.id_marca
         INNER JOIN Proveedor
-        ON Producto.idprovedor = ProductoDetalles.id_provedor
+        ON Proveedor.id_provedor = ProductoDetalles.id_provedor
         INNER JOIN Garantia
         ON Garantia.id_garantia = Producto.id_garantia
         INNER JOIN Aspecto_Tecnico
@@ -97,7 +99,7 @@ AS
         ON Utilidad.id_utilidad = ProductoDetalles.id_utilidades
         INNER JOIN Cuidado
         ON Cuidado.id_cuidado = ProductoDetalles.id_cuidados
-        WHERE CONTAINS(Producto.descripcion,@in_Parte_Descripcion)
+        WHERE Producto.descripcion LIKE '%'+ @in_Parte_Descripcion +'%' 
     END
 GO 
 
