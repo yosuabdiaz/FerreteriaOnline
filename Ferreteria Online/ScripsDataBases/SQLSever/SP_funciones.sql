@@ -217,14 +217,15 @@ AS
 GO 
 
 
---Reporte de ganancias, sucursal y productos
+--Reporte de ganancias, sucursal y productos por fechas
 
-CREATE PROCEDURE reporte
-
+CREATE PROCEDURE Reporte
+	@in_Fecha_Inicial DATE,
+	@in_Fecha_Final DATE
 AS
     BEGIN
         SELECT Venta.id_ferreteria, Detalle_Venta.id_producto,
-        SUM(Producto.precio) * Detalle_Venta.cantidad AS Monto
+        (SUM(Producto.precio) * Detalle_Venta.cantidad) AS Monto
         FROM Venta
         INNER JOIN Inventario_Ferreteria
         ON Inventario_Ferreteria.id_ferreteria = Venta.id_ferreteria
@@ -232,7 +233,9 @@ AS
         ON Detalle_Venta.id_venta = Venta.id_venta
         INNER JOIN Producto
         ON Producto.id_producto = Detalle_Venta.id_producto
-        GROUP BY CUBE (Venta.id_ferreteria, Detalle_Venta.id_producto, Monto)
+        GROUP BY CUBE (Venta.id_ferreteria, Detalle_Venta.id_producto, Monto, Detalle_Venta.cantidad,Venta.fecha)
+		HAVING Venta.fecha >= ISNULL(@in_Fecha_Inicial,Venta.fecha)
+		AND Venta.fecha <= ISNULL(@in_Fecha_Final,Venta.fecha)
     END
 GO
 
@@ -258,7 +261,7 @@ AS
             AND id_tipo_venta = @inid_Tipo_Venta
             AND id_ferreteria = @inid_Ferreteria
             AND fecha = @in_Fecha
-            AND in_Monto = @in_Monto
+            AND monto = @in_Monto
             )
         RETURN @id_Venta
     END
@@ -286,7 +289,7 @@ CREATE PROCEDURE Crear_Lista_deseos
 
 AS
     BEGIN
-        INSERT INTO Venta (id_cliente, id_vendedor, fecha, activo, entregado)
+        INSERT INTO Venta (id_cliente, id_vendedor, fecha, activo)
         VALUES(@inid_Cliente, @inid_Vendedor, @in_Fecha, 1, 0)
         DECLARE @id_Venta INT
         SET @id_Venta = (
@@ -294,7 +297,6 @@ AS
             FROM Venta 
             WHERE id_cliente = @inid_Cliente
             AND fecha = @in_Fecha
-            AND entregado = 0
             AND id_vendedor = @inid_Vendedor
             )
         RETURN @id_Venta
@@ -309,7 +311,7 @@ CREATE PROCEDURE Agregar_Detalle_Lista_deseos
     @in_cantidad INT
 AS
     BEGIN
-        INSERT INTO Detalle_lista_deseos (id_venta,id_producto,cantidad,activo)
-        VALUES(@inid_venta,@inid_producto,@in_cantidad,1)
+        INSERT INTO Detalle_lista_deseos (id_lista,id_producto,cantidad,activo)
+        VALUES(@inid_lista,@inid_producto,@in_cantidad,1)
     END
 GO 
