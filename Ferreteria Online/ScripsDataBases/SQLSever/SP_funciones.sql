@@ -216,18 +216,6 @@ AS
     END 
 GO 
 
---Recibido de los productos por parte del cliente
-
-CREATE PROCEDURE Recibido_Cliente
-    @inid_Venta INT
-
-AS
-    BEGIN
-        UPDATE Detalle_Entrega
-        SET recibido = 1
-        WHERE id_venta = @inid_Venta
-    END
-GO
 
 --Reporte de ganancias, sucursal y productos
 
