@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION obtenerRuta(inid_Venta integer,) 
+CREATE OR REPLACE FUNCTION recibido(inid_Venta integer,) 
 RETURNS void AS
 $$
 	UPDATE detalle_entrega
