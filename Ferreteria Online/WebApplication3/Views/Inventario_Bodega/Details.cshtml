@@ -1,0 +1,50 @@
+﻿@model WebApplication3.Inventario_Bodega
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Inventario_Bodega</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cantidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cantidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.activo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.activo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bodega.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bodega.descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Producto.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Producto.descripcion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_inventario_bodega }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

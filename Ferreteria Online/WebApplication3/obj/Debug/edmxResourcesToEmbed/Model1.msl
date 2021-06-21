@@ -1,0 +1,431 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FerreteriaOnlineModelStoreContainer" CdmEntityContainer="FerreteriaOnlineEntities1">
+    <EntitySetMapping Name="Amonestacion">
+      <EntityTypeMapping TypeName="FerreteriaOnlineModel.Amonestacion">
+        <MappingFragment StoreEntitySet="Amonestacion">
+          <ScalarProperty Name="id_amonestacion" ColumnName="id_amonestacion" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Amonestacion_x_Empleado">
+      <EntityTypeMapping TypeName="FerreteriaOnlineModel.Amonestacion_x_Empleado">
+        <MappingFragment StoreEntitySet="Amonestacion_x_Empleado">
+          <ScalarProperty Name="id_amonestacion_x_empleado" ColumnName="id_amonestacion_x_empleado" />
+          <ScalarProperty Name="id_amonestacion" ColumnName="id_amonestacion" />
+          <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Aspecto_Tecnico">
+      <EntityTypeMapping TypeName="FerreteriaOnlineModel.Aspecto_Tecnico">
+        <MappingFragment StoreEntitySet="Aspecto_Tecnico">
+          <ScalarProperty Name="id_aspecto_tecnico" ColumnName="id_aspecto_tecnico" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bodega">
+      <EntityTypeMapping TypeName="FerreteriaOnlineModel.Bodega">
+        <MappingFragment StoreEntitySet="Bodega">
+          <ScalarProperty Name="id_bodega" ColumnName="id_bodega" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="ubicacion" ColumnName="ubicacion" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contraindicacion">
+      <EntityTypeMapping TypeName="FerreteriaOnlineModel.Contraindicacion">
+        <MappingFragment StoreEntitySet="Contraindicacion">
+          <ScalarProperty Name="id_contraindicacion" ColumnName="id_contraindicacion" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cuidado">
+      <EntityTypeMapping TypeName="FerreteriaOnlineModel.Cuidado">
+        <MappingFragment StoreEntitySet="Cuidado">
+          <ScalarProperty Name="id_cuidado" ColumnName="id_cuidado" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departamento">
+      <EntityTypeMapping TypeName="FerreteriaOnlineModel.Departamento">
+        <MappingFragment StoreEntitySet="Departamento">
+          <ScalarProperty Name="id_departamento" ColumnName="id_departamento" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departamento_x_Ferreteria">
+      <EntityTypeMapping TypeName="FerreteriaOnlineModel.Departamento_x_Ferreteria">
+        <MappingFragment StoreEntitySet="Departamento_x_Ferreteria">
+          <ScalarProperty Name="id_departamento_x_ferreteria" ColumnName="id_departamento_x_ferreteria" />
+          <ScalarProperty Name="id_departamento" ColumnName="id_departamento" />
+          <ScalarProperty Name="id_ferreteria" ColumnName="id_ferreteria" />
+          <ScalarProperty Name="id_experto" ColumnName="id_experto" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Detalle_Lista_Deseos">
+      <EntityTypeMapping TypeName="FerreteriaOnlineModel.Detalle_Lista_Deseos">
+        <MappingFragment StoreEntitySet="Detalle_Lista_Deseos">
+          <ScalarProperty Name="id_detalle" ColumnName="id_detalle" />
+          <ScalarProperty Name="id_lista" ColumnName="id_lista" />
+          <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Detalle_Venta">
+      <EntityTypeMapping TypeName="FerreteriaOnlineModel.Detalle_Venta">
+        <MappingFragment StoreEntitySet="Detalle_Venta">
+          <ScalarProperty Name="id_detalle_venta" ColumnName="id_detalle_venta" />
+          <ScalarProperty Name="id_venta" ColumnName="id_venta" />
+          <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empleado">
+      <EntityTypeMapping TypeName="FerreteriaOnlineModel.Empleado">
+        <MappingFragment StoreEntitySet="Empleado">
+          <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
+          <ScalarProperty Name="id_tipo_empleado" ColumnName="id_tipo_empleado" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="fecha_ingreso" ColumnName="fecha_ingreso" />
+          <ScalarProperty Name="carnet" ColumnName="carnet" />
+          <ScalarProperty Name="salario" ColumnName="salario" />
+          <ScalarProperty Name="vacaciones" ColumnName="vacaciones" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empleado_x_Ferreteria">
+      <EntityTypeMapping TypeName="FerreteriaOnlineModel.Empleado_x_Ferreteria">
+        <MappingFragment StoreEntitySet="Empleado_x_Ferreteria">
+          <ScalarProperty Name="id_empleado_x_ferreteria" ColumnName="id_empleado_x_ferreteria" />
+          <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
+          <ScalarProperty Name="id_ferreteria" ColumnName="id_ferreteria" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Estante">
+      <EntityTypeMapping TypeName="FerreteriaOnlineModel.Estante">
+        <MappingFragment StoreEntitySet="Estante">
+          <ScalarProperty Name="id_estante" ColumnName="id_estante" />
+          <ScalarProperty Name="id_pasillo_x_departamento" ColumnName="id_pasillo_x_departamento" />
+          <ScalarProperty Name="numero" ColumnName="numero" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ferreteria">
+      <EntityTypeMapping TypeName="FerreteriaOnlineModel.Ferreteria">
+        <MappingFragment StoreEntitySet="Ferreteria">
+          <ScalarProperty Name="id_ferreteria" ColumnName="id_ferreteria" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="ubicacion" ColumnName="ubicacion" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Garantia">
+      <EntityTypeMapping TypeName="FerreteriaOnlineModel.Garantia">
+        <MappingFragment StoreEntitySet="Garantia">
+          <ScalarProperty Name="id_garantia" ColumnName="id_garantia" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="tiempo_garantia" ColumnName="tiempo_garantia" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Inventario_Bodega">
+      <EntityTypeMapping TypeName="FerreteriaOnlineModel.Inventario_Bodega">
+        <MappingFragment StoreEntitySet="Inventario_Bodega">
+          <ScalarProperty Name="id_inventario_bodega" ColumnName="id_inventario_bodega" />
+          <ScalarProperty Name="id_bodega" ColumnName="id_bodega" />
+          <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Inventario_Ferreteria">
+      <EntityTypeMapping TypeName="FerreteriaOnlineModel.Inventario_Ferreteria">
+        <MappingFragment StoreEntitySet="Inventario_Ferreteria">
+          <ScalarProperty Name="id_inventario_ferreteria" ColumnName="id_inventario_ferreteria" />
+          <ScalarProperty Name="id_ferreteria" ColumnName="id_ferreteria" />
+          <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lista_Deseos">
+      <EntityTypeMapping TypeName="FerreteriaOnlineModel.Lista_Deseos">
+        <MappingFragment StoreEntitySet="Lista_Deseos">
+          <ScalarProperty Name="id_lista" ColumnName="id_lista" />
+          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+          <ScalarProperty Name="id_vendedor" ColumnName="id_vendedor" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="entregado" ColumnName="entregado" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Marca">
+      <EntityTypeMapping TypeName="FerreteriaOnlineModel.Marca">
+        <MappingFragment StoreEntitySet="Marca">
+          <ScalarProperty Name="id_marca" ColumnName="id_marca" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pasillo">
+      <EntityTypeMapping TypeName="FerreteriaOnlineModel.Pasillo">
+        <MappingFragment StoreEntitySet="Pasillo">
+          <ScalarProperty Name="id_pasillo" ColumnName="id_pasillo" />
+          <ScalarProperty Name="numero" ColumnName="numero" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pasillo_x_Departamento">
+      <EntityTypeMapping TypeName="FerreteriaOnlineModel.Pasillo_x_Departamento">
+        <MappingFragment StoreEntitySet="Pasillo_x_Departamento">
+          <ScalarProperty Name="id_pasillo_x_departamento" ColumnName="id_pasillo_x_departamento" />
+          <ScalarProperty Name="id_departamento_x_ferreteria" ColumnName="id_departamento_x_ferreteria" />
+          <ScalarProperty Name="id_pasillo" ColumnName="id_pasillo" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Producto">
+      <EntityTypeMapping TypeName="FerreteriaOnlineModel.Producto">
+        <MappingFragment StoreEntitySet="Producto">
+          <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="foto" ColumnName="foto" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="id_marca" ColumnName="id_marca" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="id_garantia" ColumnName="id_garantia" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Producto_x_Estante">
+      <EntityTypeMapping TypeName="FerreteriaOnlineModel.Producto_x_Estante">
+        <MappingFragment StoreEntitySet="Producto_x_Estante">
+          <ScalarProperty Name="id_producto_x_estante" ColumnName="id_producto_x_estante" />
+          <ScalarProperty Name="id_estante" ColumnName="id_estante" />
+          <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductoDetalles">
+      <EntityTypeMapping TypeName="FerreteriaOnlineModel.ProductoDetalles">
+        <MappingFragment StoreEntitySet="ProductoDetalles">
+          <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+          <ScalarProperty Name="id_provedor" ColumnName="id_provedor" />
+          <ScalarProperty Name="id_aspectos_tecnicos" ColumnName="id_aspectos_tecnicos" />
+          <ScalarProperty Name="id_contraindicaciones" ColumnName="id_contraindicaciones" />
+          <ScalarProperty Name="id_utilidades" ColumnName="id_utilidades" />
+          <ScalarProperty Name="id_cuidados" ColumnName="id_cuidados" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Proveedor">
+      <EntityTypeMapping TypeName="FerreteriaOnlineModel.Proveedor">
+        <MappingFragment StoreEntitySet="Proveedor">
+          <ScalarProperty Name="id_provedor" ColumnName="id_provedor" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tipo_Empleado">
+      <EntityTypeMapping TypeName="FerreteriaOnlineModel.Tipo_Empleado">
+        <MappingFragment StoreEntitySet="Tipo_Empleado">
+          <ScalarProperty Name="id_tipo_empleado" ColumnName="id_tipo_empleado" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tipo_venta">
+      <EntityTypeMapping TypeName="FerreteriaOnlineModel.Tipo_venta">
+        <MappingFragment StoreEntitySet="Tipo_venta">
+          <ScalarProperty Name="id_tipo_venta" ColumnName="id_tipo_venta" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Utilidad">
+      <EntityTypeMapping TypeName="FerreteriaOnlineModel.Utilidad">
+        <MappingFragment StoreEntitySet="Utilidad">
+          <ScalarProperty Name="id_utilidad" ColumnName="id_utilidad" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vacaciones_disfrutadas">
+      <EntityTypeMapping TypeName="FerreteriaOnlineModel.Vacaciones_disfrutadas">
+        <MappingFragment StoreEntitySet="Vacaciones_disfrutadas">
+          <ScalarProperty Name="id_vacaciones_disfrutadas" ColumnName="id_vacaciones_disfrutadas" />
+          <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
+          <ScalarProperty Name="dias" ColumnName="dias" />
+          <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
+          <ScalarProperty Name="fecha_final" ColumnName="fecha_final" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Venta">
+      <EntityTypeMapping TypeName="FerreteriaOnlineModel.Venta">
+        <MappingFragment StoreEntitySet="Venta">
+          <ScalarProperty Name="id_venta" ColumnName="id_venta" />
+          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+          <ScalarProperty Name="id_tipo_venta" ColumnName="id_tipo_venta" />
+          <ScalarProperty Name="id_ferreteria" ColumnName="id_ferreteria" />
+          <ScalarProperty Name="id_vendedor" ColumnName="id_vendedor" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="monto" ColumnName="monto" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Crear_Amonestacion" FunctionName="FerreteriaOnlineModel.Store.Crear_Amonestacion" />
+    <FunctionImportMapping FunctionImportName="Crear_Amonestacion_x_Empleado" FunctionName="FerreteriaOnlineModel.Store.Crear_Amonestacion_x_Empleado" />
+    <FunctionImportMapping FunctionImportName="Crear_Aspecto_Tecnico" FunctionName="FerreteriaOnlineModel.Store.Crear_Aspecto_Tecnico" />
+    <FunctionImportMapping FunctionImportName="Crear_Aspecto_Tecnico_x_Producto" FunctionName="FerreteriaOnlineModel.Store.Crear_Aspecto_Tecnico_x_Producto" />
+    <FunctionImportMapping FunctionImportName="Crear_Bodega" FunctionName="FerreteriaOnlineModel.Store.Crear_Bodega" />
+    <FunctionImportMapping FunctionImportName="Crear_Cliente" FunctionName="FerreteriaOnlineModel.Store.Crear_Cliente" />
+    <FunctionImportMapping FunctionImportName="Crear_Cliente_x_Ferreteria" FunctionName="FerreteriaOnlineModel.Store.Crear_Cliente_x_Ferreteria" />
+    <FunctionImportMapping FunctionImportName="Crear_contraindicacion" FunctionName="FerreteriaOnlineModel.Store.Crear_contraindicacion" />
+    <FunctionImportMapping FunctionImportName="Crear_Contraindicacion_x_Producto" FunctionName="FerreteriaOnlineModel.Store.Crear_Contraindicacion_x_Producto" />
+    <FunctionImportMapping FunctionImportName="Crear_Cuidado" FunctionName="FerreteriaOnlineModel.Store.Crear_Cuidado" />
+    <FunctionImportMapping FunctionImportName="Crear_Cuidado_x_Producto" FunctionName="FerreteriaOnlineModel.Store.Crear_Cuidado_x_Producto" />
+    <FunctionImportMapping FunctionImportName="Crear_Departamento" FunctionName="FerreteriaOnlineModel.Store.Crear_Departamento" />
+    <FunctionImportMapping FunctionImportName="Crear_Departamento_x_Ferreteria" FunctionName="FerreteriaOnlineModel.Store.Crear_Departamento_x_Ferreteria" />
+    <FunctionImportMapping FunctionImportName="Crear_Detalle_Venta" FunctionName="FerreteriaOnlineModel.Store.Crear_Detalle_Venta" />
+    <FunctionImportMapping FunctionImportName="Crear_Direccion" FunctionName="FerreteriaOnlineModel.Store.Crear_Direccion" />
+    <FunctionImportMapping FunctionImportName="Crear_Direccion_x_Cliente" FunctionName="FerreteriaOnlineModel.Store.Crear_Direccion_x_Cliente" />
+    <FunctionImportMapping FunctionImportName="Crear_Empleado" FunctionName="FerreteriaOnlineModel.Store.Crear_Empleado" />
+    <FunctionImportMapping FunctionImportName="Crear_Empleado_x_Ferreteria" FunctionName="FerreteriaOnlineModel.Store.Crear_Empleado_x_Ferreteria" />
+    <FunctionImportMapping FunctionImportName="Crear_Entrega" FunctionName="FerreteriaOnlineModel.Store.Crear_Entrega" />
+    <FunctionImportMapping FunctionImportName="Crear_Estante" FunctionName="FerreteriaOnlineModel.Store.Crear_Estante" />
+    <FunctionImportMapping FunctionImportName="Crear_Estante_x_Producto" FunctionName="FerreteriaOnlineModel.Store.Crear_Estante_x_Producto" />
+    <FunctionImportMapping FunctionImportName="Crear_Ferreteria" FunctionName="FerreteriaOnlineModel.Store.Crear_Ferreteria" />
+    <FunctionImportMapping FunctionImportName="Crear_Flotilla" FunctionName="FerreteriaOnlineModel.Store.Crear_Flotilla" />
+    <FunctionImportMapping FunctionImportName="Crear_Garantia" FunctionName="FerreteriaOnlineModel.Store.Crear_Garantia" />
+    <FunctionImportMapping FunctionImportName="Crear_Inventario_Bodega" FunctionName="FerreteriaOnlineModel.Store.Crear_Inventario_Bodega" />
+    <FunctionImportMapping FunctionImportName="Crear_Inventario_Ferreteria" FunctionName="FerreteriaOnlineModel.Store.Crear_Inventario_Ferreteria" />
+    <FunctionImportMapping FunctionImportName="Crear_Marca" FunctionName="FerreteriaOnlineModel.Store.Crear_Marca" />
+    <FunctionImportMapping FunctionImportName="Crear_Pasillo" FunctionName="FerreteriaOnlineModel.Store.Crear_Pasillo" />
+    <FunctionImportMapping FunctionImportName="Crear_Pasillo_x_Departamento" FunctionName="FerreteriaOnlineModel.Store.Crear_Pasillo_x_Departamento" />
+    <FunctionImportMapping FunctionImportName="Crear_Provedor" FunctionName="FerreteriaOnlineModel.Store.Crear_Provedor" />
+    <FunctionImportMapping FunctionImportName="Crear_Punto" FunctionName="FerreteriaOnlineModel.Store.Crear_Punto" />
+    <FunctionImportMapping FunctionImportName="Crear_Punto_x_Ruta" FunctionName="FerreteriaOnlineModel.Store.Crear_Punto_x_Ruta" />
+    <FunctionImportMapping FunctionImportName="Crear_Ruta" FunctionName="FerreteriaOnlineModel.Store.Crear_Ruta" />
+    <FunctionImportMapping FunctionImportName="Crear_Tipo_Empleado" FunctionName="FerreteriaOnlineModel.Store.Crear_Tipo_Empleado" />
+    <FunctionImportMapping FunctionImportName="Crear_Utilidad" FunctionName="FerreteriaOnlineModel.Store.Crear_Utilidad" />
+    <FunctionImportMapping FunctionImportName="Crear_Utilidad_x_Producto" FunctionName="FerreteriaOnlineModel.Store.Crear_Utilidad_x_Producto" />
+    <FunctionImportMapping FunctionImportName="Crear_Vehiculo" FunctionName="FerreteriaOnlineModel.Store.Crear_Vehiculo" />
+    <FunctionImportMapping FunctionImportName="Crear_Venta" FunctionName="FerreteriaOnlineModel.Store.Crear_Venta" />
+    <FunctionImportMapping FunctionImportName="Eliminar_Amonestacion" FunctionName="FerreteriaOnlineModel.Store.Eliminar_Amonestacion" />
+    <FunctionImportMapping FunctionImportName="Eliminar_Amonestacion_x_Empleado" FunctionName="FerreteriaOnlineModel.Store.Eliminar_Amonestacion_x_Empleado" />
+    <FunctionImportMapping FunctionImportName="Eliminar_Aspecto_Tecnico" FunctionName="FerreteriaOnlineModel.Store.Eliminar_Aspecto_Tecnico" />
+    <FunctionImportMapping FunctionImportName="Eliminar_Aspecto_Tecnico_x_Producto" FunctionName="FerreteriaOnlineModel.Store.Eliminar_Aspecto_Tecnico_x_Producto" />
+    <FunctionImportMapping FunctionImportName="Eliminar_Bodega" FunctionName="FerreteriaOnlineModel.Store.Eliminar_Bodega" />
+    <FunctionImportMapping FunctionImportName="Eliminar_Cliente" FunctionName="FerreteriaOnlineModel.Store.Eliminar_Cliente" />
+    <FunctionImportMapping FunctionImportName="Eliminar_Cliente_x_Ferreteria" FunctionName="FerreteriaOnlineModel.Store.Eliminar_Cliente_x_Ferreteria" />
+    <FunctionImportMapping FunctionImportName="Eliminar_contraindicacion" FunctionName="FerreteriaOnlineModel.Store.Eliminar_contraindicacion" />
+    <FunctionImportMapping FunctionImportName="Eliminar_Contraindicacion_x_Producto" FunctionName="FerreteriaOnlineModel.Store.Eliminar_Contraindicacion_x_Producto" />
+    <FunctionImportMapping FunctionImportName="Eliminar_Cuidado" FunctionName="FerreteriaOnlineModel.Store.Eliminar_Cuidado" />
+    <FunctionImportMapping FunctionImportName="Eliminar_Cuidado_x_Producto" FunctionName="FerreteriaOnlineModel.Store.Eliminar_Cuidado_x_Producto" />
+    <FunctionImportMapping FunctionImportName="Eliminar_Departamento" FunctionName="FerreteriaOnlineModel.Store.Eliminar_Departamento" />
+    <FunctionImportMapping FunctionImportName="Eliminar_Direccion" FunctionName="FerreteriaOnlineModel.Store.Eliminar_Direccion" />
+    <FunctionImportMapping FunctionImportName="Eliminar_Direccion_x_Cliente" FunctionName="FerreteriaOnlineModel.Store.Eliminar_Direccion_x_Cliente" />
+    <FunctionImportMapping FunctionImportName="Eliminar_Empleado" FunctionName="FerreteriaOnlineModel.Store.Eliminar_Empleado" />
+    <FunctionImportMapping FunctionImportName="Eliminar_Empleado_x_Ferreteria" FunctionName="FerreteriaOnlineModel.Store.Eliminar_Empleado_x_Ferreteria" />
+    <FunctionImportMapping FunctionImportName="Eliminar_Ferreteria" FunctionName="FerreteriaOnlineModel.Store.Eliminar_Ferreteria" />
+    <FunctionImportMapping FunctionImportName="Eliminar_Garantia" FunctionName="FerreteriaOnlineModel.Store.Eliminar_Garantia" />
+    <FunctionImportMapping FunctionImportName="Eliminar_Inventario_Ferreteria" FunctionName="FerreteriaOnlineModel.Store.Eliminar_Inventario_Ferreteria" />
+    <FunctionImportMapping FunctionImportName="Eliminar_Marca" FunctionName="FerreteriaOnlineModel.Store.Eliminar_Marca" />
+    <FunctionImportMapping FunctionImportName="Eliminar_Pasillo" FunctionName="FerreteriaOnlineModel.Store.Eliminar_Pasillo" />
+    <FunctionImportMapping FunctionImportName="Eliminar_Producto" FunctionName="FerreteriaOnlineModel.Store.Eliminar_Producto" />
+    <FunctionImportMapping FunctionImportName="Eliminar_Provedor" FunctionName="FerreteriaOnlineModel.Store.Eliminar_Provedor" />
+    <FunctionImportMapping FunctionImportName="Eliminar_Ruta" FunctionName="FerreteriaOnlineModel.Store.Eliminar_Ruta" />
+    <FunctionImportMapping FunctionImportName="Eliminar_Tipo_Empleado" FunctionName="FerreteriaOnlineModel.Store.Eliminar_Tipo_Empleado" />
+    <FunctionImportMapping FunctionImportName="Eliminar_Utilidad" FunctionName="FerreteriaOnlineModel.Store.Eliminar_Utilidad" />
+    <FunctionImportMapping FunctionImportName="Eliminar_Utilidad_x_Producto" FunctionName="FerreteriaOnlineModel.Store.Eliminar_Utilidad_x_Producto" />
+    <FunctionImportMapping FunctionImportName="Leer_Amonestacion" FunctionName="FerreteriaOnlineModel.Store.Leer_Amonestacion" />
+    <FunctionImportMapping FunctionImportName="Leer_Aspecto_Tecnico" FunctionName="FerreteriaOnlineModel.Store.Leer_Aspecto_Tecnico" />
+    <FunctionImportMapping FunctionImportName="Leer_Bodega" FunctionName="FerreteriaOnlineModel.Store.Leer_Bodega">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FerreteriaOnlineModel.Leer_Bodega_Result">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Leer_Cliente" FunctionName="FerreteriaOnlineModel.Store.Leer_Cliente" />
+    <FunctionImportMapping FunctionImportName="Leer_contraindicacion" FunctionName="FerreteriaOnlineModel.Store.Leer_contraindicacion" />
+    <FunctionImportMapping FunctionImportName="Leer_Cuidado" FunctionName="FerreteriaOnlineModel.Store.Leer_Cuidado" />
+    <FunctionImportMapping FunctionImportName="Leer_Departamento" FunctionName="FerreteriaOnlineModel.Store.Leer_Departamento" />
+    <FunctionImportMapping FunctionImportName="Leer_Direccion" FunctionName="FerreteriaOnlineModel.Store.Leer_Direccion" />
+    <FunctionImportMapping FunctionImportName="Leer_Empleado" FunctionName="FerreteriaOnlineModel.Store.Leer_Empleado">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FerreteriaOnlineModel.Leer_Empleado_Result">
+          <ScalarProperty Name="id_tipo_empleado" ColumnName="id_tipo_empleado" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="fecha_ingreso" ColumnName="fecha_ingreso" />
+          <ScalarProperty Name="carnet" ColumnName="carnet" />
+          <ScalarProperty Name="salario" ColumnName="salario" />
+          <ScalarProperty Name="vacaciones" ColumnName="vacaciones" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Leer_Ferreteria" FunctionName="FerreteriaOnlineModel.Store.Leer_Ferreteria">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FerreteriaOnlineModel.Leer_Ferreteria_Result">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Leer_Garantia" FunctionName="FerreteriaOnlineModel.Store.Leer_Garantia">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FerreteriaOnlineModel.Leer_Garantia_Result">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="tiempo_garantia" ColumnName="tiempo_garantia" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Leer_Marca" FunctionName="FerreteriaOnlineModel.Store.Leer_Marca" />
+    <FunctionImportMapping FunctionImportName="Leer_Pasillo" FunctionName="FerreteriaOnlineModel.Store.Leer_Pasillo" />
+    <FunctionImportMapping FunctionImportName="Leer_Provedor" FunctionName="FerreteriaOnlineModel.Store.Leer_Provedor" />
+    <FunctionImportMapping FunctionImportName="Leer_Ruta" FunctionName="FerreteriaOnlineModel.Store.Leer_Ruta" />
+    <FunctionImportMapping FunctionImportName="Leer_Tipo_Empleado" FunctionName="FerreteriaOnlineModel.Store.Leer_Tipo_Empleado" />
+    <FunctionImportMapping FunctionImportName="Leer_Utilidad" FunctionName="FerreteriaOnlineModel.Store.Leer_Utilidad" />
+  </EntityContainerMapping>
+</Mapping>

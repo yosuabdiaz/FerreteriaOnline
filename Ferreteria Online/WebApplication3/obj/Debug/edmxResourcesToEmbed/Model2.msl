@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FerreteriaOnlineModel1StoreContainer" CdmEntityContainer="FerreteriaOnlineEntities2">
+    <EntitySetMapping Name="Pasillo_x_Departamento">
+      <EntityTypeMapping TypeName="FerreteriaOnlineModel1.Pasillo_x_Departamento">
+        <MappingFragment StoreEntitySet="Pasillo_x_Departamento">
+          <ScalarProperty Name="id_pasillo_x_departamento" ColumnName="id_pasillo_x_departamento" />
+          <ScalarProperty Name="id_departamento_x_ferreteria" ColumnName="id_departamento_x_ferreteria" />
+          <ScalarProperty Name="id_pasillo" ColumnName="id_pasillo" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

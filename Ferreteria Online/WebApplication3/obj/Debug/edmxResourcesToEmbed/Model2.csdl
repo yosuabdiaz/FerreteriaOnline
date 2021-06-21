@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FerreteriaOnlineModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Pasillo_x_Departamento">
+    <Key>
+      <PropertyRef Name="id_pasillo_x_departamento" />
+    </Key>
+    <Property Name="id_pasillo_x_departamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_departamento_x_ferreteria" Type="Int32" Nullable="false" />
+    <Property Name="id_pasillo" Type="Int32" Nullable="false" />
+    <Property Name="activo" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="FerreteriaOnlineEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Pasillo_x_Departamento" EntityType="Self.Pasillo_x_Departamento" />
+  </EntityContainer>
+</Schema>

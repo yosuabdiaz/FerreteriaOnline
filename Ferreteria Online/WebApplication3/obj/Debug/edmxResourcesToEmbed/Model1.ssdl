@@ -1,0 +1,1078 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FerreteriaOnlineModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Amonestacion">
+    <Key>
+      <PropertyRef Name="id_amonestacion" />
+    </Key>
+    <Property Name="id_amonestacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Amonestacion_x_Empleado">
+    <Key>
+      <PropertyRef Name="id_amonestacion_x_empleado" />
+    </Key>
+    <Property Name="id_amonestacion_x_empleado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_amonestacion" Type="int" Nullable="false" />
+    <Property Name="id_empleado" Type="int" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Aspecto_Tecnico">
+    <Key>
+      <PropertyRef Name="id_aspecto_tecnico" />
+    </Key>
+    <Property Name="id_aspecto_tecnico" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar(max)" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Bodega">
+    <Key>
+      <PropertyRef Name="id_bodega" />
+    </Key>
+    <Property Name="id_bodega" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="ubicacion" Type="geometry" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Contraindicacion">
+    <Key>
+      <PropertyRef Name="id_contraindicacion" />
+    </Key>
+    <Property Name="id_contraindicacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar(max)" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cuidado">
+    <Key>
+      <PropertyRef Name="id_cuidado" />
+    </Key>
+    <Property Name="id_cuidado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar(max)" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Departamento">
+    <Key>
+      <PropertyRef Name="id_departamento" />
+    </Key>
+    <Property Name="id_departamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Departamento_x_Ferreteria">
+    <Key>
+      <PropertyRef Name="id_departamento_x_ferreteria" />
+    </Key>
+    <Property Name="id_departamento_x_ferreteria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_departamento" Type="int" Nullable="false" />
+    <Property Name="id_ferreteria" Type="int" Nullable="false" />
+    <Property Name="id_experto" Type="int" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Detalle_Lista_Deseos">
+    <Key>
+      <PropertyRef Name="id_detalle" />
+    </Key>
+    <Property Name="id_detalle" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_lista" Type="int" Nullable="false" />
+    <Property Name="id_producto" Type="int" Nullable="false" />
+    <Property Name="cantidad" Type="int" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Detalle_Venta">
+    <Key>
+      <PropertyRef Name="id_detalle_venta" />
+    </Key>
+    <Property Name="id_detalle_venta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_venta" Type="int" Nullable="false" />
+    <Property Name="id_producto" Type="int" Nullable="false" />
+    <Property Name="cantidad" Type="int" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Empleado">
+    <Key>
+      <PropertyRef Name="id_empleado" />
+    </Key>
+    <Property Name="id_empleado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_tipo_empleado" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="fecha_ingreso" Type="date" Nullable="false" />
+    <Property Name="carnet" Type="int" Nullable="false" />
+    <Property Name="salario" Type="money" Nullable="false" />
+    <Property Name="vacaciones" Type="int" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Empleado_x_Ferreteria">
+    <Key>
+      <PropertyRef Name="id_empleado_x_ferreteria" />
+    </Key>
+    <Property Name="id_empleado_x_ferreteria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_empleado" Type="int" Nullable="false" />
+    <Property Name="id_ferreteria" Type="int" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Estante">
+    <Key>
+      <PropertyRef Name="id_estante" />
+    </Key>
+    <Property Name="id_estante" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_pasillo_x_departamento" Type="int" Nullable="false" />
+    <Property Name="numero" Type="int" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ferreteria">
+    <Key>
+      <PropertyRef Name="id_ferreteria" />
+    </Key>
+    <Property Name="id_ferreteria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="ubicacion" Type="geometry" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Garantia">
+    <Key>
+      <PropertyRef Name="id_garantia" />
+    </Key>
+    <Property Name="id_garantia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="tiempo_garantia" Type="int" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Inventario_Bodega">
+    <Key>
+      <PropertyRef Name="id_inventario_bodega" />
+    </Key>
+    <Property Name="id_inventario_bodega" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_bodega" Type="int" Nullable="false" />
+    <Property Name="id_producto" Type="int" Nullable="false" />
+    <Property Name="cantidad" Type="int" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Inventario_Ferreteria">
+    <Key>
+      <PropertyRef Name="id_inventario_ferreteria" />
+    </Key>
+    <Property Name="id_inventario_ferreteria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_ferreteria" Type="int" Nullable="false" />
+    <Property Name="id_producto" Type="int" Nullable="false" />
+    <Property Name="cantidad" Type="int" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Lista_Deseos">
+    <Key>
+      <PropertyRef Name="id_lista" />
+    </Key>
+    <Property Name="id_lista" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_cliente" Type="int" Nullable="false" />
+    <Property Name="id_vendedor" Type="int" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="entregado" Type="bit" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Marca">
+    <Key>
+      <PropertyRef Name="id_marca" />
+    </Key>
+    <Property Name="id_marca" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pasillo">
+    <Key>
+      <PropertyRef Name="id_pasillo" />
+    </Key>
+    <Property Name="id_pasillo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="numero" Type="int" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pasillo_x_Departamento">
+    <Key>
+      <PropertyRef Name="id_pasillo_x_departamento" />
+    </Key>
+    <Property Name="id_pasillo_x_departamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_departamento_x_ferreteria" Type="int" Nullable="false" />
+    <Property Name="id_pasillo" Type="int" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="id_producto" />
+    </Key>
+    <Property Name="id_producto" Type="int" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="foto" Type="image" Nullable="false" />
+    <Property Name="precio" Type="money" Nullable="false" />
+    <Property Name="id_marca" Type="int" Nullable="false" />
+    <Property Name="codigo" Type="int" Nullable="false" />
+    <Property Name="id_garantia" Type="int" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Producto_x_Estante">
+    <Key>
+      <PropertyRef Name="id_producto_x_estante" />
+    </Key>
+    <Property Name="id_producto_x_estante" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_estante" Type="int" Nullable="false" />
+    <Property Name="id_producto" Type="int" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductoDetalles">
+    <Key>
+      <PropertyRef Name="id_producto" />
+    </Key>
+    <Property Name="id_producto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_provedor" Type="int" Nullable="false" />
+    <Property Name="id_aspectos_tecnicos" Type="int" Nullable="false" />
+    <Property Name="id_contraindicaciones" Type="int" Nullable="false" />
+    <Property Name="id_utilidades" Type="int" Nullable="false" />
+    <Property Name="id_cuidados" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Proveedor">
+    <Key>
+      <PropertyRef Name="id_provedor" />
+    </Key>
+    <Property Name="id_provedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="telefono" Type="int" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tipo_Empleado">
+    <Key>
+      <PropertyRef Name="id_tipo_empleado" />
+    </Key>
+    <Property Name="id_tipo_empleado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tipo_venta">
+    <Key>
+      <PropertyRef Name="id_tipo_venta" />
+    </Key>
+    <Property Name="id_tipo_venta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Utilidad">
+    <Key>
+      <PropertyRef Name="id_utilidad" />
+    </Key>
+    <Property Name="id_utilidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar(max)" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Vacaciones_disfrutadas">
+    <Key>
+      <PropertyRef Name="id_vacaciones_disfrutadas" />
+    </Key>
+    <Property Name="id_vacaciones_disfrutadas" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_empleado" Type="int" Nullable="false" />
+    <Property Name="dias" Type="int" Nullable="false" />
+    <Property Name="fecha_inicio" Type="date" Nullable="false" />
+    <Property Name="fecha_final" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Venta">
+    <Key>
+      <PropertyRef Name="id_venta" />
+    </Key>
+    <Property Name="id_venta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_cliente" Type="int" Nullable="false" />
+    <Property Name="id_tipo_venta" Type="int" Nullable="false" />
+    <Property Name="id_ferreteria" Type="int" Nullable="false" />
+    <Property Name="id_vendedor" Type="int" Nullable="false" />
+    <Property Name="fecha" Type="datetime" Nullable="false" />
+    <Property Name="monto" Type="money" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Amonestac__id_am__4AB81AF0">
+    <End Role="Amonestacion" Type="Self.Amonestacion" Multiplicity="1" />
+    <End Role="Amonestacion_x_Empleado" Type="Self.Amonestacion_x_Empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Amonestacion">
+        <PropertyRef Name="id_amonestacion" />
+      </Principal>
+      <Dependent Role="Amonestacion_x_Empleado">
+        <PropertyRef Name="id_amonestacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Amonestac__id_em__4BAC3F29">
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
+    <End Role="Amonestacion_x_Empleado" Type="Self.Amonestacion_x_Empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleado">
+        <PropertyRef Name="id_empleado" />
+      </Principal>
+      <Dependent Role="Amonestacion_x_Empleado">
+        <PropertyRef Name="id_empleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Departame__id_de__5629CD9C">
+    <End Role="Departamento" Type="Self.Departamento" Multiplicity="1" />
+    <End Role="Departamento_x_Ferreteria" Type="Self.Departamento_x_Ferreteria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamento">
+        <PropertyRef Name="id_departamento" />
+      </Principal>
+      <Dependent Role="Departamento_x_Ferreteria">
+        <PropertyRef Name="id_departamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Departame__id_ex__5812160E">
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
+    <End Role="Departamento_x_Ferreteria" Type="Self.Departamento_x_Ferreteria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleado">
+        <PropertyRef Name="id_empleado" />
+      </Principal>
+      <Dependent Role="Departamento_x_Ferreteria">
+        <PropertyRef Name="id_experto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Departame__id_fe__571DF1D5">
+    <End Role="Ferreteria" Type="Self.Ferreteria" Multiplicity="1" />
+    <End Role="Departamento_x_Ferreteria" Type="Self.Departamento_x_Ferreteria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ferreteria">
+        <PropertyRef Name="id_ferreteria" />
+      </Principal>
+      <Dependent Role="Departamento_x_Ferreteria">
+        <PropertyRef Name="id_ferreteria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Detalle_L__id_li__72C60C4A">
+    <End Role="Lista_Deseos" Type="Self.Lista_Deseos" Multiplicity="1" />
+    <End Role="Detalle_Lista_Deseos" Type="Self.Detalle_Lista_Deseos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lista_Deseos">
+        <PropertyRef Name="id_lista" />
+      </Principal>
+      <Dependent Role="Detalle_Lista_Deseos">
+        <PropertyRef Name="id_lista" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Detalle_L__id_pr__73BA3083">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+    <End Role="Detalle_Lista_Deseos" Type="Self.Detalle_Lista_Deseos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="id_producto" />
+      </Principal>
+      <Dependent Role="Detalle_Lista_Deseos">
+        <PropertyRef Name="id_producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Detalle_V__id_pr__6C190EBB">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+    <End Role="Detalle_Venta" Type="Self.Detalle_Venta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="id_producto" />
+      </Principal>
+      <Dependent Role="Detalle_Venta">
+        <PropertyRef Name="id_producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Detalle_V__id_ve__6D0D32F4">
+    <End Role="Venta" Type="Self.Venta" Multiplicity="1" />
+    <End Role="Detalle_Venta" Type="Self.Detalle_Venta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Venta">
+        <PropertyRef Name="id_venta" />
+      </Principal>
+      <Dependent Role="Detalle_Venta">
+        <PropertyRef Name="id_venta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Empleado___id_em__4E88ABD4">
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
+    <End Role="Empleado_x_Ferreteria" Type="Self.Empleado_x_Ferreteria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleado">
+        <PropertyRef Name="id_empleado" />
+      </Principal>
+      <Dependent Role="Empleado_x_Ferreteria">
+        <PropertyRef Name="id_empleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Empleado___id_fe__4F7CD00D">
+    <End Role="Ferreteria" Type="Self.Ferreteria" Multiplicity="1" />
+    <End Role="Empleado_x_Ferreteria" Type="Self.Empleado_x_Ferreteria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ferreteria">
+        <PropertyRef Name="id_ferreteria" />
+      </Principal>
+      <Dependent Role="Empleado_x_Ferreteria">
+        <PropertyRef Name="id_ferreteria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Empleado__id_tip__45F365D3">
+    <End Role="Tipo_Empleado" Type="Self.Tipo_Empleado" Multiplicity="1" />
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipo_Empleado">
+        <PropertyRef Name="id_tipo_empleado" />
+      </Principal>
+      <Dependent Role="Empleado">
+        <PropertyRef Name="id_tipo_empleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Estante__id_pasi__5EBF139D">
+    <End Role="Pasillo_x_Departamento" Type="Self.Pasillo_x_Departamento" Multiplicity="1" />
+    <End Role="Estante" Type="Self.Estante" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pasillo_x_Departamento">
+        <PropertyRef Name="id_pasillo_x_departamento" />
+      </Principal>
+      <Dependent Role="Estante">
+        <PropertyRef Name="id_pasillo_x_departamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Inventari__id_bo__3C69FB99">
+    <End Role="Bodega" Type="Self.Bodega" Multiplicity="1" />
+    <End Role="Inventario_Bodega" Type="Self.Inventario_Bodega" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bodega">
+        <PropertyRef Name="id_bodega" />
+      </Principal>
+      <Dependent Role="Inventario_Bodega">
+        <PropertyRef Name="id_bodega" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Inventari__id_fe__403A8C7D">
+    <End Role="Ferreteria" Type="Self.Ferreteria" Multiplicity="1" />
+    <End Role="Inventario_Ferreteria" Type="Self.Inventario_Ferreteria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ferreteria">
+        <PropertyRef Name="id_ferreteria" />
+      </Principal>
+      <Dependent Role="Inventario_Ferreteria">
+        <PropertyRef Name="id_ferreteria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Inventari__id_pr__3D5E1FD2">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+    <End Role="Inventario_Bodega" Type="Self.Inventario_Bodega" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="id_producto" />
+      </Principal>
+      <Dependent Role="Inventario_Bodega">
+        <PropertyRef Name="id_producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Inventari__id_pr__412EB0B6">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+    <End Role="Inventario_Ferreteria" Type="Self.Inventario_Ferreteria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="id_producto" />
+      </Principal>
+      <Dependent Role="Inventario_Ferreteria">
+        <PropertyRef Name="id_producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Lista_Des__id_ve__6FE99F9F">
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
+    <End Role="Lista_Deseos" Type="Self.Lista_Deseos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleado">
+        <PropertyRef Name="id_empleado" />
+      </Principal>
+      <Dependent Role="Lista_Deseos">
+        <PropertyRef Name="id_vendedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pasillo_x__id_de__5AEE82B9">
+    <End Role="Departamento_x_Ferreteria" Type="Self.Departamento_x_Ferreteria" Multiplicity="1" />
+    <End Role="Pasillo_x_Departamento" Type="Self.Pasillo_x_Departamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamento_x_Ferreteria">
+        <PropertyRef Name="id_departamento_x_ferreteria" />
+      </Principal>
+      <Dependent Role="Pasillo_x_Departamento">
+        <PropertyRef Name="id_departamento_x_ferreteria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pasillo_x__id_pa__5BE2A6F2">
+    <End Role="Pasillo" Type="Self.Pasillo" Multiplicity="1" />
+    <End Role="Pasillo_x_Departamento" Type="Self.Pasillo_x_Departamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pasillo">
+        <PropertyRef Name="id_pasillo" />
+      </Principal>
+      <Dependent Role="Pasillo_x_Departamento">
+        <PropertyRef Name="id_pasillo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Producto___id_es__628FA481">
+    <End Role="Estante" Type="Self.Estante" Multiplicity="1" />
+    <End Role="Producto_x_Estante" Type="Self.Producto_x_Estante" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estante">
+        <PropertyRef Name="id_estante" />
+      </Principal>
+      <Dependent Role="Producto_x_Estante">
+        <PropertyRef Name="id_estante" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Producto___id_pr__619B8048">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+    <End Role="Producto_x_Estante" Type="Self.Producto_x_Estante" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="id_producto" />
+      </Principal>
+      <Dependent Role="Producto_x_Estante">
+        <PropertyRef Name="id_producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Producto__id_gar__31EC6D26">
+    <End Role="Garantia" Type="Self.Garantia" Multiplicity="1" />
+    <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Garantia">
+        <PropertyRef Name="id_garantia" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="id_garantia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Producto__id_mar__30F848ED">
+    <End Role="Marca" Type="Self.Marca" Multiplicity="1" />
+    <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Marca">
+        <PropertyRef Name="id_marca" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="id_marca" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Producto__id_pro__300424B4">
+    <End Role="ProductoDetalles" Type="Self.ProductoDetalles" Multiplicity="1" />
+    <End Role="Producto" Type="Self.Producto" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ProductoDetalles">
+        <PropertyRef Name="id_producto" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="id_producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Venta__id_ferret__6754599E">
+    <End Role="Ferreteria" Type="Self.Ferreteria" Multiplicity="1" />
+    <End Role="Venta" Type="Self.Venta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ferreteria">
+        <PropertyRef Name="id_ferreteria" />
+      </Principal>
+      <Dependent Role="Venta">
+        <PropertyRef Name="id_ferreteria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Venta__id_tipo_v__693CA210">
+    <End Role="Tipo_venta" Type="Self.Tipo_venta" Multiplicity="1" />
+    <End Role="Venta" Type="Self.Venta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipo_venta">
+        <PropertyRef Name="id_tipo_venta" />
+      </Principal>
+      <Dependent Role="Venta">
+        <PropertyRef Name="id_tipo_venta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Venta__id_vended__68487DD7">
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
+    <End Role="Venta" Type="Self.Venta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleado">
+        <PropertyRef Name="id_empleado" />
+      </Principal>
+      <Dependent Role="Venta">
+        <PropertyRef Name="id_vendedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="Crear_Amonestacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="indescripcion" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Crear_Amonestacion_x_Empleado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="innombre_amonestacion" Type="varchar" Mode="In" />
+    <Parameter Name="incarnet_empleado" Type="int" Mode="In" />
+    <Parameter Name="indescripcion" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Crear_Aspecto_Tecnico" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="indescripcion" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Crear_Aspecto_Tecnico_x_Producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="innombre_producto" Type="varchar" Mode="In" />
+    <Parameter Name="indescripcion_aspecto_tecnico" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Crear_Bodega" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="indescripcion" Type="varchar" Mode="In" />
+    <Parameter Name="in_ubicacion" Type="geometry" Mode="In" />
+  </Function>
+  <Function Name="Crear_Cliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="innombre" Type="varchar" Mode="In" />
+    <Parameter Name="inpuntuacion" Type="int" Mode="In" />
+    <Parameter Name="incorreo" Type="varchar" Mode="In" />
+    <Parameter Name="metodo_Pago" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Crear_Cliente_x_Ferreteria" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="innombre_cliente" Type="varchar" Mode="In" />
+    <Parameter Name="innombre_ferreteria" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Crear_contraindicacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="indescripcion" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Crear_Contraindicacion_x_Producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="innombre_producto" Type="varchar" Mode="In" />
+    <Parameter Name="indescripcion_contraindicacion" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Crear_Cuidado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="indescripcion" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Crear_Cuidado_x_Producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="innombre_producto" Type="varchar" Mode="In" />
+    <Parameter Name="indescripcion_cuidado" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Crear_Departamento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="indescripcion" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Crear_Departamento_x_Ferreteria" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="innombre_ferreteria" Type="varchar" Mode="In" />
+    <Parameter Name="indescripdepartamento" Type="varchar" Mode="In" />
+    <Parameter Name="incarnet_empleado" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Crear_Detalle_Venta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="innombre_cliente" Type="varchar" Mode="In" />
+    <Parameter Name="incarnet_empleado" Type="int" Mode="In" />
+    <Parameter Name="innombre_ferreteria" Type="varchar" Mode="In" />
+    <Parameter Name="infecha" Type="date" Mode="In" />
+    <Parameter Name="inmonto" Type="money" Mode="In" />
+    <Parameter Name="incodigo_producto" Type="int" Mode="In" />
+    <Parameter Name="incantidad_producto" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Crear_Direccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="indescripcion" Type="varchar" Mode="In" />
+    <Parameter Name="in_ubicacion" Type="geometry" Mode="In" />
+  </Function>
+  <Function Name="Crear_Direccion_x_Cliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="innombre_cliente" Type="varchar" Mode="In" />
+    <Parameter Name="inubicacion" Type="geometry" Mode="In" />
+  </Function>
+  <Function Name="Crear_Empleado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="indescripcion_tipo_empleado" Type="varchar" Mode="In" />
+    <Parameter Name="innombre_empleado" Type="varchar" Mode="In" />
+    <Parameter Name="inFechaIngreso" Type="date" Mode="In" />
+    <Parameter Name="incarnet" Type="int" Mode="In" />
+    <Parameter Name="insalario" Type="money" Mode="In" />
+    <Parameter Name="invacaciones" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Crear_Empleado_x_Ferreteria" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="incarnet_empleado" Type="int" Mode="In" />
+    <Parameter Name="innombre_ferreteria" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Crear_Entrega" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="inplaca_vehiculo" Type="varchar" Mode="In" />
+    <Parameter Name="indescripcion_ruta" Type="varchar" Mode="In" />
+    <Parameter Name="infecha" Type="date" Mode="In" />
+  </Function>
+  <Function Name="Crear_Estante" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="innumero" Type="int" Mode="In" />
+    <Parameter Name="innumero_pasillo" Type="int" Mode="In" />
+    <Parameter Name="indescripdepartamento" Type="varchar" Mode="In" />
+    <Parameter Name="innombre_ferreteria" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Crear_Estante_x_Producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="innumero_estante" Type="int" Mode="In" />
+    <Parameter Name="incodigo_producto" Type="int" Mode="In" />
+    <Parameter Name="innumero_pasillo" Type="int" Mode="In" />
+    <Parameter Name="indescripdepartamento" Type="varchar" Mode="In" />
+    <Parameter Name="innombre_ferreteria" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Crear_Ferreteria" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="indescripcion" Type="varchar" Mode="In" />
+    <Parameter Name="in_ubicacion" Type="geometry" Mode="In" />
+  </Function>
+  <Function Name="Crear_Flotilla" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="innombre_ferreteria" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Crear_Garantia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="indescripcion" Type="varchar" Mode="In" />
+    <Parameter Name="in_tiempo_garantia" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Crear_Inventario_Bodega" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="innombre_producto" Type="varchar" Mode="In" />
+    <Parameter Name="innombre_bodega" Type="varchar" Mode="In" />
+    <Parameter Name="incantidad" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Crear_Inventario_Ferreteria" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="innombre_producto" Type="varchar" Mode="In" />
+    <Parameter Name="innombre_ferreteria" Type="varchar" Mode="In" />
+    <Parameter Name="incantidad" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Crear_Marca" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="innombre" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Crear_Pasillo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="innumero" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Crear_Pasillo_x_Departamento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="innumero_pasillo" Type="int" Mode="In" />
+    <Parameter Name="indescripdepartamento" Type="varchar" Mode="In" />
+    <Parameter Name="innombre_ferreteria" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Crear_Provedor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="innombre" Type="varchar" Mode="In" />
+    <Parameter Name="in_telefono" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Crear_Punto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="inubicacion" Type="geometry" Mode="In" />
+  </Function>
+  <Function Name="Crear_Punto_x_Ruta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="inubicacion_punto" Type="geometry" Mode="In" />
+    <Parameter Name="indescripcion_ruta" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Crear_Ruta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="indescripcion" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Crear_Tipo_Empleado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="indescripcion" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Crear_Utilidad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="indescripcion" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Crear_Utilidad_x_Producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="innombre_producto" Type="varchar" Mode="In" />
+    <Parameter Name="indescripcion_utilidad" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Crear_Vehiculo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="inplaca_vehiculo" Type="varchar" Mode="In" />
+    <Parameter Name="indescripcion" Type="varchar" Mode="In" />
+    <Parameter Name="incapcidad_tanque_gasolina" Type="int" Mode="In" />
+    <Parameter Name="innombre_ferreteria" Type="varchar" Mode="In" />
+    <Parameter Name="incarnet_empleado" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Crear_Venta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="innombre_cliente" Type="varchar" Mode="In" />
+    <Parameter Name="incarnet_empleado" Type="int" Mode="In" />
+    <Parameter Name="innombre_ferreteria" Type="varchar" Mode="In" />
+    <Parameter Name="infecha" Type="date" Mode="In" />
+    <Parameter Name="inmonto" Type="money" Mode="In" />
+  </Function>
+  <Function Name="Eliminar_Amonestacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="indescripcion" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Eliminar_Amonestacion_x_Empleado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="innombre_amonestacion" Type="varchar" Mode="In" />
+    <Parameter Name="incarnet_empleado" Type="int" Mode="In" />
+    <Parameter Name="indescripcion" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Eliminar_Aspecto_Tecnico" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="indescripcion" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Eliminar_Aspecto_Tecnico_x_Producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="innombre_producto" Type="varchar" Mode="In" />
+    <Parameter Name="indescripcion_aspecto_tecnico" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Eliminar_Bodega" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="indescripcion" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Eliminar_Cliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="innombre" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Eliminar_Cliente_x_Ferreteria" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="innombre_cliente" Type="varchar" Mode="In" />
+    <Parameter Name="innombre_ferreteria" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Eliminar_contraindicacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="indescripcion" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Eliminar_Contraindicacion_x_Producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="innombre_producto" Type="varchar" Mode="In" />
+    <Parameter Name="indescripcion_contraindicacion" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Eliminar_Cuidado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="indescripcion" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Eliminar_Cuidado_x_Producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="innombre_producto" Type="varchar" Mode="In" />
+    <Parameter Name="indescripcion_cuidado" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Eliminar_Departamento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="innombre" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Eliminar_Direccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="indescripcion" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Eliminar_Direccion_x_Cliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="innombre_cliente" Type="varchar" Mode="In" />
+    <Parameter Name="inubicacion" Type="geometry" Mode="In" />
+  </Function>
+  <Function Name="Eliminar_Empleado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="innombre" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Eliminar_Empleado_x_Ferreteria" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="incarnet_empleado" Type="int" Mode="In" />
+    <Parameter Name="innombre_ferreteria" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Eliminar_Ferreteria" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="indescripcion" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Eliminar_Garantia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="indescripcion" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Eliminar_Inventario_Ferreteria" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="innombre_producto" Type="varchar" Mode="In" />
+    <Parameter Name="innombre_ferreteria" Type="varchar" Mode="In" />
+    <Parameter Name="incantidad" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Eliminar_Marca" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="innombre" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Eliminar_Pasillo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="innumero" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Eliminar_Producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="incodigo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Eliminar_Provedor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="innombre" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Eliminar_Ruta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="indescripcion" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Eliminar_Tipo_Empleado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="indescripcion" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Eliminar_Utilidad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="indescripcion" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Eliminar_Utilidad_x_Producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="innombre_producto" Type="varchar" Mode="In" />
+    <Parameter Name="indescripcion_utilidad" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Leer_Amonestacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="indescripcion" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Leer_Aspecto_Tecnico" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="indescripcion" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Leer_Bodega" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="indescripcion" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Leer_Cliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="innombre" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Leer_contraindicacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="indescripcion" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Leer_Cuidado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="indescripcion" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Leer_Departamento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="innombre" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Leer_Direccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="indescripcion" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Leer_Empleado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="innombre" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Leer_Ferreteria" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="indescripcion" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Leer_Garantia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="indescripcion" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Leer_Marca" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="innombre" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Leer_Pasillo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="innumero" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Leer_Provedor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="innombre" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Leer_Ruta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="indescripcion" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Leer_Tipo_Empleado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="indescripcion" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Leer_Utilidad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="indescripcion" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="FerreteriaOnlineModelStoreContainer">
+    <EntitySet Name="Amonestacion" EntityType="Self.Amonestacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Amonestacion_x_Empleado" EntityType="Self.Amonestacion_x_Empleado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Aspecto_Tecnico" EntityType="Self.Aspecto_Tecnico" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bodega" EntityType="Self.Bodega" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contraindicacion" EntityType="Self.Contraindicacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cuidado" EntityType="Self.Cuidado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Departamento" EntityType="Self.Departamento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Departamento_x_Ferreteria" EntityType="Self.Departamento_x_Ferreteria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Detalle_Lista_Deseos" EntityType="Self.Detalle_Lista_Deseos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Detalle_Venta" EntityType="Self.Detalle_Venta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Empleado" EntityType="Self.Empleado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Empleado_x_Ferreteria" EntityType="Self.Empleado_x_Ferreteria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Estante" EntityType="Self.Estante" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ferreteria" EntityType="Self.Ferreteria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Garantia" EntityType="Self.Garantia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Inventario_Bodega" EntityType="Self.Inventario_Bodega" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Inventario_Ferreteria" EntityType="Self.Inventario_Ferreteria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Lista_Deseos" EntityType="Self.Lista_Deseos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Marca" EntityType="Self.Marca" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pasillo" EntityType="Self.Pasillo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pasillo_x_Departamento" EntityType="Self.Pasillo_x_Departamento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Producto_x_Estante" EntityType="Self.Producto_x_Estante" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductoDetalles" EntityType="Self.ProductoDetalles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Proveedor" EntityType="Self.Proveedor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tipo_Empleado" EntityType="Self.Tipo_Empleado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tipo_venta" EntityType="Self.Tipo_venta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Utilidad" EntityType="Self.Utilidad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vacaciones_disfrutadas" EntityType="Self.Vacaciones_disfrutadas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Venta" EntityType="Self.Venta" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Amonestac__id_am__4AB81AF0" Association="Self.FK__Amonestac__id_am__4AB81AF0">
+      <End Role="Amonestacion" EntitySet="Amonestacion" />
+      <End Role="Amonestacion_x_Empleado" EntitySet="Amonestacion_x_Empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Amonestac__id_em__4BAC3F29" Association="Self.FK__Amonestac__id_em__4BAC3F29">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="Amonestacion_x_Empleado" EntitySet="Amonestacion_x_Empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Departame__id_de__5629CD9C" Association="Self.FK__Departame__id_de__5629CD9C">
+      <End Role="Departamento" EntitySet="Departamento" />
+      <End Role="Departamento_x_Ferreteria" EntitySet="Departamento_x_Ferreteria" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Departame__id_ex__5812160E" Association="Self.FK__Departame__id_ex__5812160E">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="Departamento_x_Ferreteria" EntitySet="Departamento_x_Ferreteria" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Departame__id_fe__571DF1D5" Association="Self.FK__Departame__id_fe__571DF1D5">
+      <End Role="Ferreteria" EntitySet="Ferreteria" />
+      <End Role="Departamento_x_Ferreteria" EntitySet="Departamento_x_Ferreteria" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Detalle_L__id_li__72C60C4A" Association="Self.FK__Detalle_L__id_li__72C60C4A">
+      <End Role="Lista_Deseos" EntitySet="Lista_Deseos" />
+      <End Role="Detalle_Lista_Deseos" EntitySet="Detalle_Lista_Deseos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Detalle_L__id_pr__73BA3083" Association="Self.FK__Detalle_L__id_pr__73BA3083">
+      <End Role="Producto" EntitySet="Producto" />
+      <End Role="Detalle_Lista_Deseos" EntitySet="Detalle_Lista_Deseos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Detalle_V__id_pr__6C190EBB" Association="Self.FK__Detalle_V__id_pr__6C190EBB">
+      <End Role="Producto" EntitySet="Producto" />
+      <End Role="Detalle_Venta" EntitySet="Detalle_Venta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Detalle_V__id_ve__6D0D32F4" Association="Self.FK__Detalle_V__id_ve__6D0D32F4">
+      <End Role="Venta" EntitySet="Venta" />
+      <End Role="Detalle_Venta" EntitySet="Detalle_Venta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Empleado___id_em__4E88ABD4" Association="Self.FK__Empleado___id_em__4E88ABD4">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="Empleado_x_Ferreteria" EntitySet="Empleado_x_Ferreteria" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Empleado___id_fe__4F7CD00D" Association="Self.FK__Empleado___id_fe__4F7CD00D">
+      <End Role="Ferreteria" EntitySet="Ferreteria" />
+      <End Role="Empleado_x_Ferreteria" EntitySet="Empleado_x_Ferreteria" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Empleado__id_tip__45F365D3" Association="Self.FK__Empleado__id_tip__45F365D3">
+      <End Role="Tipo_Empleado" EntitySet="Tipo_Empleado" />
+      <End Role="Empleado" EntitySet="Empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Estante__id_pasi__5EBF139D" Association="Self.FK__Estante__id_pasi__5EBF139D">
+      <End Role="Pasillo_x_Departamento" EntitySet="Pasillo_x_Departamento" />
+      <End Role="Estante" EntitySet="Estante" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Inventari__id_bo__3C69FB99" Association="Self.FK__Inventari__id_bo__3C69FB99">
+      <End Role="Bodega" EntitySet="Bodega" />
+      <End Role="Inventario_Bodega" EntitySet="Inventario_Bodega" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Inventari__id_fe__403A8C7D" Association="Self.FK__Inventari__id_fe__403A8C7D">
+      <End Role="Ferreteria" EntitySet="Ferreteria" />
+      <End Role="Inventario_Ferreteria" EntitySet="Inventario_Ferreteria" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Inventari__id_pr__3D5E1FD2" Association="Self.FK__Inventari__id_pr__3D5E1FD2">
+      <End Role="Producto" EntitySet="Producto" />
+      <End Role="Inventario_Bodega" EntitySet="Inventario_Bodega" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Inventari__id_pr__412EB0B6" Association="Self.FK__Inventari__id_pr__412EB0B6">
+      <End Role="Producto" EntitySet="Producto" />
+      <End Role="Inventario_Ferreteria" EntitySet="Inventario_Ferreteria" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Lista_Des__id_ve__6FE99F9F" Association="Self.FK__Lista_Des__id_ve__6FE99F9F">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="Lista_Deseos" EntitySet="Lista_Deseos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pasillo_x__id_de__5AEE82B9" Association="Self.FK__Pasillo_x__id_de__5AEE82B9">
+      <End Role="Departamento_x_Ferreteria" EntitySet="Departamento_x_Ferreteria" />
+      <End Role="Pasillo_x_Departamento" EntitySet="Pasillo_x_Departamento" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pasillo_x__id_pa__5BE2A6F2" Association="Self.FK__Pasillo_x__id_pa__5BE2A6F2">
+      <End Role="Pasillo" EntitySet="Pasillo" />
+      <End Role="Pasillo_x_Departamento" EntitySet="Pasillo_x_Departamento" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Producto___id_es__628FA481" Association="Self.FK__Producto___id_es__628FA481">
+      <End Role="Estante" EntitySet="Estante" />
+      <End Role="Producto_x_Estante" EntitySet="Producto_x_Estante" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Producto___id_pr__619B8048" Association="Self.FK__Producto___id_pr__619B8048">
+      <End Role="Producto" EntitySet="Producto" />
+      <End Role="Producto_x_Estante" EntitySet="Producto_x_Estante" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Producto__id_gar__31EC6D26" Association="Self.FK__Producto__id_gar__31EC6D26">
+      <End Role="Garantia" EntitySet="Garantia" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Producto__id_mar__30F848ED" Association="Self.FK__Producto__id_mar__30F848ED">
+      <End Role="Marca" EntitySet="Marca" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Producto__id_pro__300424B4" Association="Self.FK__Producto__id_pro__300424B4">
+      <End Role="ProductoDetalles" EntitySet="ProductoDetalles" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Venta__id_ferret__6754599E" Association="Self.FK__Venta__id_ferret__6754599E">
+      <End Role="Ferreteria" EntitySet="Ferreteria" />
+      <End Role="Venta" EntitySet="Venta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Venta__id_tipo_v__693CA210" Association="Self.FK__Venta__id_tipo_v__693CA210">
+      <End Role="Tipo_venta" EntitySet="Tipo_venta" />
+      <End Role="Venta" EntitySet="Venta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Venta__id_vended__68487DD7" Association="Self.FK__Venta__id_vended__68487DD7">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="Venta" EntitySet="Venta" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

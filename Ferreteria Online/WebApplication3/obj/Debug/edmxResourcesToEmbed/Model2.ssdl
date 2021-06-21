@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FerreteriaOnlineModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Pasillo_x_Departamento">
+    <Key>
+      <PropertyRef Name="id_pasillo_x_departamento" />
+    </Key>
+    <Property Name="id_pasillo_x_departamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_departamento_x_ferreteria" Type="int" Nullable="false" />
+    <Property Name="id_pasillo" Type="int" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="FerreteriaOnlineModel1StoreContainer">
+    <EntitySet Name="Pasillo_x_Departamento" EntityType="Self.Pasillo_x_Departamento" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
