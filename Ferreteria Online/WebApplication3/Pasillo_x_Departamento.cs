@@ -14,9 +14,20 @@ namespace WebApplication3
     
     public partial class Pasillo_x_Departamento
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Pasillo_x_Departamento()
+        {
+            this.Estante = new HashSet<Estante>();
+        }
+    
         public int id_pasillo_x_departamento { get; set; }
         public int id_departamento_x_ferreteria { get; set; }
         public int id_pasillo { get; set; }
         public bool activo { get; set; }
+    
+        public virtual Departamento_x_Ferreteria Departamento_x_Ferreteria { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Estante> Estante { get; set; }
+        public virtual Pasillo Pasillo { get; set; }
     }
 }

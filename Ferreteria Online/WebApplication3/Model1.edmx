@@ -1761,7 +1761,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="FerreteriaOnlineEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="FerreteriaOnlineEntities3" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Amonestacion" EntityType="Self.Amonestacion" />
           <EntitySet Name="Amonestacion_x_Empleado" EntityType="Self.Amonestacion_x_Empleado" />
           <EntitySet Name="Aspecto_Tecnico" EntityType="Self.Aspecto_Tecnico" />
@@ -2239,7 +2239,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="FerreteriaOnlineModelStoreContainer" CdmEntityContainer="FerreteriaOnlineEntities1">
+        <EntityContainerMapping StorageEntityContainer="FerreteriaOnlineModelStoreContainer" CdmEntityContainer="FerreteriaOnlineEntities3">
           <EntitySetMapping Name="Amonestacion">
             <EntityTypeMapping TypeName="FerreteriaOnlineModel.Amonestacion">
               <MappingFragment StoreEntitySet="Amonestacion">

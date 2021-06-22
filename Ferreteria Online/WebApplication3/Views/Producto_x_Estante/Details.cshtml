@@ -1,0 +1,42 @@
+﻿@model WebApplication3.Producto_x_Estante
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Producto_x_Estante</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.activo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.activo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estante.id_estante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estante.id_estante)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Producto.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Producto.descripcion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_producto_x_estante }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

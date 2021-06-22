@@ -15,10 +15,10 @@ namespace WebApplication3
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class FerreteriaOnlineEntities1 : DbContext
+    public partial class FerreteriaOnlineEntities3 : DbContext
     {
-        public FerreteriaOnlineEntities1()
-            : base("name=FerreteriaOnlineEntities1")
+        public FerreteriaOnlineEntities3()
+            : base("name=FerreteriaOnlineEntities3")
         {
         }
     

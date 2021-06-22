@@ -1,0 +1,42 @@
+﻿@model WebApplication3.Pasillo_x_Departamento
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Pasillo_x_Departamento</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.activo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.activo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Departamento_x_Ferreteria.id_departamento_x_ferreteria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Departamento_x_Ferreteria.id_departamento_x_ferreteria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pasillo.id_pasillo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pasillo.id_pasillo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_pasillo_x_departamento }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

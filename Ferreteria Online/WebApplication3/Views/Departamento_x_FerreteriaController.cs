@@ -12,7 +12,7 @@ namespace WebApplication3.Views
 {
     public class Departamento_x_FerreteriaController : Controller
     {
-        private FerreteriaOnlineEntities1 db = new FerreteriaOnlineEntities1();
+        private FerreteriaOnlineEntities3 db = new FerreteriaOnlineEntities3();
 
         // GET: Departamento_x_Ferreteria
         public ActionResult Index()
