@@ -1,0 +1,25 @@
+﻿@model List<WebApplication3.Models.Multa>
+<h2>Multas</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>id multa</th>
+            <th>id entrega </th>
+            <th>monto </th>
+            <th>descripcion </th>
+            <th>activo </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var multa in Model)
+        {
+        <tr>
+            <td>@multa.id_multa</td>
+            <td>@multa.id_entrega</td>
+            <td>@multa.monto</td>
+            <td>@multa.descripcion</td>
+            <td>@multa.activo</td>
+        </tr>
+        }
+    </tbody>
+</table>

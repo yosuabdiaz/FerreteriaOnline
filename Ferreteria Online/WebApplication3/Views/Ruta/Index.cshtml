@@ -1,0 +1,26 @@
+﻿@model List<WebApplication3.Models.Ruta>
+
+
+<h2>Clientes</h2>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>id ruta</th>
+            <th>descripcion </th>
+            <th>activo </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ruta in Model)
+        {
+            <tr>
+                <td>@ruta.id_ruta</td>
+                <td>@ruta.descripcion </td>
+                <td>@ruta.activo </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

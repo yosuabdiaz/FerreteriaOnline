@@ -1,0 +1,19 @@
+﻿@model List< WebApplication3.Models.MejorEmpleado>
+<table class="table">
+    <thead>
+        <tr>
+            <th>id empleado</th>
+            <th>total</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var empleado in Model)
+        {
+            <tr>
+                <td>@empleado.id_empleado</td>
+                <td>@empleado.total</td>
+            </tr>
+        }
+    </tbody>
+</table>

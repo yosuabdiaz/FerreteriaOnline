@@ -232,6 +232,10 @@
     <Compile Include="Contraindicacion.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\MejorEmpleadoController.cs" />
+    <Compile Include="Controllers\MultaController.cs" />
+    <Compile Include="Controllers\RutaController.cs" />
+    <Compile Include="Controllers\VehiculoController.cs" />
     <Compile Include="Controllers\DetalleEntregaController.cs" />
     <Compile Include="Controllers\EntregaController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
@@ -310,12 +314,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\MejorEmpleado.cs" />
     <Compile Include="Models\Entrega.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Direccion.cs" />
     <Compile Include="Models\DetalleEntrega.cs" />
+    <Compile Include="Models\Multa.cs" />
     <Compile Include="Models\ProductoBusqueda.cs" />
     <Compile Include="Models\Reporte.cs" />
+    <Compile Include="Models\Ruta.cs" />
+    <Compile Include="Models\Vehiculo.cs" />
     <Compile Include="Pasillo.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -339,7 +347,11 @@
     <Compile Include="Services\EntregaService.cs" />
     <Compile Include="Services\ClienteService.cs" />
     <Compile Include="Services\DireccionService.cs" />
+    <Compile Include="Services\MejorEmpleadoService.cs" />
+    <Compile Include="Services\MultaService.cs" />
     <Compile Include="Services\ReporteService.cs" />
+    <Compile Include="Services\RutaService.cs" />
+    <Compile Include="Services\VehiculoService.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Tipo_Empleado.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -589,6 +601,10 @@
     <Content Include="Views\Direccion\Index.cshtml" />
     <Content Include="Views\Entrega\Index.cshtml" />
     <Content Include="Views\DetalleEntrega\Index.cshtml" />
+    <Content Include="Views\Vehiculo\Index.cshtml" />
+    <Content Include="Views\Ruta\Index.cshtml" />
+    <Content Include="Views\Multa\Index.cshtml" />
+    <Content Include="Views\MejorEmpleado\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
