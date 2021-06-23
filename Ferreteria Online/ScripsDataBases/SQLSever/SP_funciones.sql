@@ -315,3 +315,56 @@ AS
         VALUES(@inid_lista,@inid_producto,@in_cantidad,1)
     END
 GO 
+
+CREATE PROCEDURE Comprar_Producto
+    @inid_Producto INT,
+    @in_Cantidad INT, 
+    @inid_Cliente INT,
+    @inid_Tipo_Venta INT,
+    @inid_Ferreteria INT,
+    @inid_Vendedor INT,
+    @inid_Fecha DATE
+AS
+    BEGIN
+        BEGIN TRY
+		SET NOCOUNT ON 
+		SET XACT_ABORT ON 
+            IF((SELECT Cantidad FROM Inventario_Ferreteria WHERE id_ferreteria = @inid_Ferreteria AND id_producto = @inid_Producto)>= @in_Cantidad)
+                BEGIN TRAN
+                    --Calcular monto
+                    DECLARE @Monto INT
+                    SET @Monto = (Select Precio*@in_Cantidad FROM Producto WHERE id_producto = inid_Producto)
+                    -- Insertar la venta
+                    INSERT INTO Venta (id_cliente,id_tipo_venta,id_ferreteria,id_vendedor,fecha,monto,activo)
+                    VALUES (@inid_Cliente,@inid_Tipo_Venta,inid_Ferreteria,inid_Vendedor,@in_Fecha,@monto,1)
+                    -- Obtener id de la venta
+                    DECLARE @idVenta INT 
+                    SET @idVenta = (
+                        SELECT TOP 1 id_venta
+                        FROM Venta
+                        WHERE id_cliente = @inid_Cliente
+                        AND id_tipo_venta = @inid_Tipo_Venta
+                        AND id_ferreteria = @inid_Ferreteria
+                        AND id_vendedor = @inid_Vendedor
+                        AND fecha = @in_Fecha
+                        AND monto = @monto
+                        AND activo = 1
+                    )
+                    -- Insertar productoXcompra
+                    INSERT INTO Detalle_Venta (id_venta,id_producto,cantidad,activo)
+                    VALUES (@idVenta,@inid_Producto,@in_Cantidad,1)
+                    -- Reducir cantidad en inventario de ferreteria
+                    UPDATE Inventario_Ferreteria
+                    SET Cantidad = Cantidad - @in_Cantidad
+                    WHERE id_producto = @inid_Producto
+                    AND id_ferreteria = @inid_Ferreteria
+                COMMIT TRAN
+        END TRY
+		BEGIN CATCH;
+			If @@TRANCOUNT > 0 
+				ROLLBACK TRAN;
+			THROW 82736,'Error: En el processo de compra',1;
+		END CATCH
+
+    END
+GO
