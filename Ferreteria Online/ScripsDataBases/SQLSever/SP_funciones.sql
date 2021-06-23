@@ -368,3 +368,68 @@ AS
 
     END
 GO
+
+
+CREATE Procedure Acomodo
+    @inid_estante INT,
+    @infecha int
+AS   
+    BEGIN 
+        BEGIN TRY
+        SET NOCOUNT ON 
+        SET XACT_ABORT ON
+        BEGIN TRAN
+                --Leer AL Estante
+                sELECT Producto.codigo, 
+                    Producto.descripcion,
+                    Estante.numero
+                FROM Producto_x_Estante
+                INNER JOIN Estante on Estante.id_estante = Producto_x_Estante.id_estante
+                INNER JOIN Producto on Producto.id_producto = Producto_x_Estante.id_producto
+                INNER JOIN Venta ON Venta.fecha > @infecha 
+                INNER JOIN dbo.Detalle_Venta ON Detalle_Venta.id_venta = Venta.id_venta
+                where Producto_x_Estante.id_estante = @inid_estante and
+                Producto_x_Estante.activo = 1
+                ORDER BY (dbo.Detalle_Venta.cantidad) DESC
+
+            COMMIT
+        END TRY
+        BEGIN CATCH
+            If @@TRANCOUNT > 0 
+                ROLLBACK TRAN;
+            THROW 62503,'Error: No se ha podido Leer el todos los productos del estante, por favor revise los datos',1;
+        END CATCH
+    END
+GO
+
+CREATE Procedure Acomodo
+    @inid_estante INT,
+    @infecha int
+AS   
+    BEGIN 
+        BEGIN TRY
+        SET NOCOUNT ON 
+        SET XACT_ABORT ON
+        BEGIN TRAN
+                --Leer AL Estante
+                sELECT Producto.codigo, 
+                    Producto.descripcion,
+                    Estante.numero
+                FROM Producto_x_Estante
+                INNER JOIN Estante on Estante.id_estante = Producto_x_Estante.id_estante
+                INNER JOIN Producto on Producto.id_producto = Producto_x_Estante.id_producto
+                INNER JOIN Venta ON Venta.fecha > @infecha 
+                INNER JOIN dbo.Detalle_Venta ON Detalle_Venta.id_venta = Venta.id_venta
+                where Producto_x_Estante.id_estante = @inid_estante and
+                Producto_x_Estante.activo = 1
+                ORDER BY (dbo.Detalle_Venta.cantidad) DESC
+
+            COMMIT
+        END TRY
+        BEGIN CATCH
+            If @@TRANCOUNT > 0 
+                ROLLBACK TRAN;
+            THROW 62503,'Error: No se ha podido Leer el todos los productos del estante, por favor revise los datos',1;
+        END CATCH
+    END
+GO
