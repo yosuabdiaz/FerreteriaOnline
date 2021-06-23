@@ -1,0 +1,23 @@
+﻿@model List<WebApplication3.Models.Direccion>
+<h2>Direccion</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>ubicacion </th>
+            <th>activo </th>
+            <th>descripcion</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var direccion in Model)
+        {
+            <tr>
+                <td>@direccion.id_direccion</td>
+                <td>@direccion.ubicacion </td>
+                <td>@direccion.activo </td>
+                <td>@direccion.descripcion </td>
+            </tr>
+        }
+    </tbody>
+</table>

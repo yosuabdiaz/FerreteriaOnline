@@ -16,7 +16,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink(" ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink(" ", "Index", "Home", new { area = "1" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -34,17 +34,21 @@
                     <li>@Html.ActionLink("Proveedor", "Index", "Proveedors")</li>
                     <li>@Html.ActionLink("InvBodega", "Index", "Inventario_Bodega")</li>
                     <li>@Html.ActionLink("InvFerreteria", "Index", "Inventario_Ferreteria")</li>
-                    <li>@Html.ActionLink("departamento", "Index", "Departamentoes")</li>
+                    <li>@Html.ActionLink("Departamento", "Index", "Departamentoes")</li>
                     <li>@Html.ActionLink("DepaFerreteria", "Index", "Departamento_x_Ferreteria")</li>
                     <li>@Html.ActionLink("Marcas", "Index", "Marcas")</li>
                     <li>@Html.ActionLink("Amonestacion", "Index", "Amonestacions")</li>
                     <li>@Html.ActionLink("TipoEmpleado", "Index", "Tipo_Empleado")</li>
                     <li>@Html.ActionLink("Estantes", "Index", "Estantes")</li>
                     <li>@Html.ActionLink("PasilloDep", "Index", "Pasillo_x_Departamento")</li>
+                    <li>@Html.ActionLink("Pasillo", "Index", "Pasilloes")</li>
                     <li>@Html.ActionLink("Vacaciones", "Index", "Vacaciones_disfrutadas")</li>
                     <li>@Html.ActionLink("Backorder", "Index", "Lista_Deseos")</li>
                     <li>@Html.ActionLink("Venta", "Index", "Ventas")</li>
-
+                    <li>@Html.ActionLink("Clientes", "Index", "Cliente")</li>
+                    <li>@Html.ActionLink("Direccion", "Index", "Direccion")</li>
+                    <li>@Html.ActionLink("Entregas", "Index", "Entrega")</li>
+                    <li>@Html.ActionLink("DetalleEntregas", "Index", "DetalleEntrega")</li>
 
                 </ul>
             </div>

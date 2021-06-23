@@ -1,0 +1,23 @@
+﻿@model List<WebApplication3.Models.Entrega>
+<h2>Entrega</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>ubicacion </th>
+            <th>activo </th>
+            <th>descripcion</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var entrega in Model)
+        {
+        <tr>
+            <td>@entrega.id_entrega</td>
+            <td>@entrega.id_vehiculo </td>
+            <td>@entrega.id_vehiculo </td>
+            <td>@entrega.id_ruta </td>
+        </tr>
+        }
+    </tbody>
+</table>

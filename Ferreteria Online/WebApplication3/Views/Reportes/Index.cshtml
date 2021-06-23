@@ -1,0 +1,25 @@
+﻿@model List<WebApplication3.Models.Reporte>
+
+@{
+    ViewBag.Title = "Reporte";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>campo 1 </th>
+            <th>campo 2 </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var reporte in Model)
+        {
+            <tr>
+                <td>@reporte.datos</td>
+                <td>@reporte.datos2 </td>
+            </tr>
+        }
+    </tbody>
+</table>

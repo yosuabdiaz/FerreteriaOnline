@@ -1,0 +1,25 @@
+﻿@model List<WebApplication3.Models.DetalleEntrega>
+<h2>DetalleEntrega</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>id_entrega</th>
+            <th>id_venta</th>
+            <th>recibido</th>
+            <th>activo</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var detalle in Model)
+        {
+        <tr>
+            <td>@detalle.id_detalle </td>
+            <td>@detalle.id_entrega </td>
+            <td>@detalle.id_venta </td>
+            <td>@detalle.recibido </td>
+            <td>@detalle.activo </td>
+        </tr>
+        }
+    </tbody>
+</table>
